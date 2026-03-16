@@ -8,7 +8,7 @@ export default defineConfig(option => ({
         port: 8000,
         hmr: false // open this line if no auto hot-reload required
     },
-    publicDir: false,
+    publicDir: option.command === 'build' ? false : 'samples/public',
     resolve: {
         alias: {
             '@orillusion/core': resolve(__dirname, './src/index.ts'),
