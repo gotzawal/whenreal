@@ -41,7 +41,7 @@ class Sample_Skeleton {
         GUIHelp.init();
         {
             // load model with skeleton animation
-            let man = await Engine3D.res.loadGltf('gltfs/CesiumMan/CesiumMan_compress.gltf');
+            let man = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/CesiumMan/CesiumMan_compress.gltf');
             man.scaleX = 30;
             man.scaleY = 30;
             man.scaleZ = 30;

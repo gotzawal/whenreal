@@ -12,7 +12,7 @@ class Sample_PBRMaterial {
         Engine3D.setting.render.debug = true;
         Engine3D.setting.shadow.shadowBound = 50;
         Engine3D.setting.shadow.shadowBias = 0.02;
-        await Engine3D.init({ canvasConfig: { alpha: true, zIndex: 11, backgroundImage: '/logo/bg.webp' } });
+        await Engine3D.init({ canvasConfig: { alpha: true, zIndex: 11, backgroundImage: 'https://cdn.orillusion.com/logo/bg.webp' } });
 
         GUIHelp.init(999);
 
@@ -56,7 +56,7 @@ class Sample_PBRMaterial {
         }
 
         {
-            let model = (await Engine3D.res.loadGltf('gltfs/wukong/wukong.gltf', {})) as Object3D;
+            let model = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf', {})) as Object3D;
             let renderList = model.getComponentsInChild(MeshRenderer);
             for (const item of renderList) {
                 let material = item.material;

@@ -56,7 +56,7 @@ export class Sample_CandleFlame {
         }
 
         let material = new ParticleMaterial();
-        material.baseMap = await Engine3D.res.loadTexture('particle/fx_a_glow_003.png');
+        material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/particle/fx_a_glow_003.png');
 
         particleSystem.geometry = new PlaneGeometry(5, 5, 1, 1, Vector3.Z_AXIS);
         particleSystem.material = material;
@@ -87,12 +87,12 @@ export class Sample_CandleFlame {
     async initScene(scene: Scene3D) {
         await this.addParticleTo(scene);
 
-        let chair = await Engine3D.res.loadGltf('PBR/SheenChair/SheenChair.gltf');
+        let chair = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/SheenChair/SheenChair.gltf');
         chair.scaleX = chair.scaleY = chair.scaleZ = 60;
         chair.transform.y = 0;
         scene.addChild(chair);
 
-        let Duck = await Engine3D.res.loadGltf('PBR/Duck/Duck.gltf');
+        let Duck = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf');
         Duck.scaleX = Duck.scaleY = Duck.scaleZ = 0.15;
         Duck.transform.y = 0;
         Duck.transform.x = -16;

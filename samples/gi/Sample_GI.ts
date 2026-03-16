@@ -115,7 +115,7 @@ class Sample_GI {
         }
 
         {
-            let chair = await Engine3D.res.loadGltf('PBR/SheenChair/SheenChair.gltf') as Object3D;
+            let chair = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/SheenChair/SheenChair.gltf') as Object3D;
             chair.scaleX = chair.scaleY = chair.scaleZ = 100;
             chair.rotationZ = chair.rotationX = 130;
             chair.z = -120;
@@ -123,7 +123,7 @@ class Sample_GI {
         }
 
         {
-            let Duck = await Engine3D.res.loadGltf('PBR/Duck/Duck.gltf') as Object3D;
+            let Duck = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf') as Object3D;
             Duck.scaleX = Duck.scaleY = Duck.scaleZ = 0.3;
             Duck.transform.y = 0;
             Duck.transform.x = 0;
@@ -132,7 +132,7 @@ class Sample_GI {
         }
 
         {
-            let car = await Engine3D.res.loadGltf('gltfs/pbrCar/pbrCar.gltf');
+            let car = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/pbrCar/pbrCar.gltf');
             car.scaleX = car.scaleY = car.scaleZ = 1.5;
             car.x = 20;
             obj3dList.push(car);

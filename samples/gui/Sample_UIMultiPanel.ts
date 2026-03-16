@@ -25,14 +25,14 @@ export class Sample_UIMultiPanel {
         // enable ui canvas at index 0
         let canvas = exampleScene.view.enableUICanvas();
 
-        let car = await Engine3D.res.loadGltf('gltfs/pbrCar/pbrCar.gltf');
+        let car = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/pbrCar/pbrCar.gltf');
         car.localScale = new Vector3(1.5, 1.5, 1.5);
 
         this.scene.addChild(car);
         this.scene.addChild(Object3DUtil.GetSingleCube(400, 1, 400, 0.2, 0.2, 0.2));
 
-        await Engine3D.res.loadFont('fnt/0.fnt');
-        await Engine3D.res.loadAtlas('atlas/Sheet_atlas.json');
+        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
+        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json');
 
         this.makeUIPanelList();
     }

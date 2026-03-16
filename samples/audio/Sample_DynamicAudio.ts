@@ -49,8 +49,8 @@ export class Static_Audio {
     async initScene() {
         {
             let [speaker, man, music] = await Promise.all([
-                Engine3D.res.loadGltf('gltfs/speaker/scene.gltf'),
-                Engine3D.res.loadGltf('gltfs/glb/CesiumMan.glb'),
+                Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/speaker/scene.gltf'),
+                Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/CesiumMan.glb'),
                 fetch('https://cdn.orillusion.com/audio.ogg').then(res => res.arrayBuffer())
             ])
             speaker.localScale.set(4, 4, 4)
