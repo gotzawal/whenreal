@@ -35,7 +35,7 @@ export class Sample_LoadGLB3 {
         // }
 
         /******** load glb file *******/
-        let model = (await Engine3D.res.loadGltf('gltfs/glb/modelNew.glb', { onProgress: (e) => this.onLoadProgress(e), onComplete: (e) => this.onComplete(e) })) as Object3D;
+        let model = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/modelNew.glb', { onProgress: (e) => this.onLoadProgress(e), onComplete: (e) => this.onComplete(e) })) as Object3D;
         this.scene.addChild(model);
         model.scaleX = model.scaleY = model.scaleZ = 0.001;
     }

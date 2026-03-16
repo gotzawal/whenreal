@@ -13,7 +13,7 @@ class Sample_FlightHelmet {
             canvasConfig: {
                 alpha: true,
                 zIndex: 0,
-                backgroundImage: '/logo/bg.webp'
+                backgroundImage: 'https://cdn.orillusion.com/logo/bg.webp'
             },
             renderLoop: () => this.loop(),
         });
@@ -74,7 +74,7 @@ class Sample_FlightHelmet {
 
         /******** load model *******/
         {
-            let model = (await Engine3D.res.loadGltf('PBR/FlightHelmet/FlightHelmet.gltf', {})) as Object3D;
+            let model = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/FlightHelmet/FlightHelmet.gltf', {})) as Object3D;
             model.transform.scaleX = 10;
             model.transform.scaleY = 10;
             model.transform.scaleZ = 10;

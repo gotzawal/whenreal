@@ -44,7 +44,7 @@ export class Static_Audio {
     async initScene() {
         {
             let group = new Object3D()
-            let speaker = await Engine3D.res.loadGltf('gltfs/speaker/scene.gltf')
+            let speaker = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/speaker/scene.gltf')
             speaker.localScale.set(4, 4, 4)
             speaker.rotationX = -120
             //speaker.y = 1.5

@@ -43,7 +43,7 @@ class Sample_PropertyAnimation {
         scene.addChild(floor);
 
         // load external model
-        let model = await Engine3D.res.loadGltf('PBR/Duck/Duck.gltf') as Object3D;
+        let model = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf') as Object3D;
         let container = new Object3D();
         container.addChild(model);
         model.rotationY = 180;
@@ -61,7 +61,7 @@ class Sample_PropertyAnimation {
         let animation = owner.addComponent(PropertyAnimation);
 
         //load a animation clip
-        let json: any = await Engine3D.res.loadJSON('json/anim_0.json');
+        let json: any = await Engine3D.res.loadJSON('https://cdn.orillusion.com/json/anim_0.json');
         let animClip = new PropertyAnimClip();
         animClip.parse(json);
         animClip.wrapMode = WrapMode.Loop;

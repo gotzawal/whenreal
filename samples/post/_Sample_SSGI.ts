@@ -170,7 +170,7 @@ export class Sample_SSGI {
 		// let giScene = await Engine3D.res.loadGltf("gltfs/scene/SM_Geode_01a.glb");
 		// let giScene = await Engine3D.res.loadGltf("gltfs/scene/SM_F_Display_Stand_01a.glb");
 		// let giScene = await Engine3D.res.loadGltf("gltfs/scene/ue5_006.glb");
-		let giScene = await Engine3D.res.loadGltf("gltfs/dt/DingLeiChangFang.gltf");
+		let giScene = await Engine3D.res.loadGltf("https://cdn.orillusion.com/gltfs/dt/DingLeiChangFang.gltf");
 
 		// let giScene = await Engine3D.res.loadGltf("gltfs/scene/ue5_007.glb");
 		// let giScene = await Engine3D.res.loadGltf("gltfs/scene/Corridor_Gardens_FountainPool01.gltf");
