@@ -24,7 +24,7 @@ class Sample_LoadGLTF2 {
         floor.y = -10;
         this.scene.addChild(floor);
 
-        let chair = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/SheenChair/SheenChair.gltf') as Object3D;
+        let chair = await Engine3D.res.loadGltf('PBR/SheenChair/SheenChair.gltf') as Object3D;
         chair.scaleX = chair.scaleY = chair.scaleZ = 60;
         chair.rotationZ = chair.rotationX = 45;
         this.scene.addChild(chair);

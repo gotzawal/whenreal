@@ -40,7 +40,7 @@ class Sample_Skeleton3 {
 
     async initScene(scene: Scene3D) {
         {
-            let rootNode = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/Soldier_draco.glb');
+            let rootNode = await Engine3D.res.loadGltf('gltfs/glb/Soldier_draco.glb');
             this.character = rootNode.getObjectByName('Character') as Object3D;
             this.character.scaleX = 0.3;
             this.character.scaleY = 0.3;

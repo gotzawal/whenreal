@@ -51,10 +51,10 @@ class Sample_POI {
         // floor
         let floor: Object3D = Object3DUtil.GetSingleCube(16, 0.1, 16, 1, 1, 1);
         this.scene.addChild(floor);
-        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
+        await Engine3D.res.loadFont('fnt/0.fnt');
 
         // load external model
-        let model = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf') as Object3D;
+        let model = await Engine3D.res.loadGltf('PBR/Duck/Duck.gltf') as Object3D;
         model.rotationY = 180;
         this.modelContainer = new Object3D();
         this.modelContainer.addChild(model);
@@ -62,7 +62,7 @@ class Sample_POI {
         model.scaleX = model.scaleY = model.scaleZ = 0.01;
         await this.initPropertyAnim(this.modelContainer);
 
-        let chair = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/SheenChair/SheenChair.gltf') as Object3D;
+        let chair = await Engine3D.res.loadGltf('PBR/SheenChair/SheenChair.gltf') as Object3D;
         chair.scaleX = chair.scaleY = chair.scaleZ = 8;
         this.scene.addChild(chair);
     }
@@ -72,7 +72,7 @@ class Sample_POI {
         let animation = owner.addComponent(PropertyAnimation);
 
         //load a animation clip
-        let json: any = await Engine3D.res.loadJSON('https://cdn.orillusion.com/json/anim_0.json');
+        let json: any = await Engine3D.res.loadJSON('json/anim_0.json');
         let animClip = new PropertyAnimClip();
         animClip.parse(json);
         animClip.wrapMode = WrapMode.Loop;

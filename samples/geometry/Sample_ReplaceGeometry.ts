@@ -27,7 +27,7 @@ class Sample_ReplaceGeometry {
         GUIHelp.init();
         this.initGeometries();
 
-        let duck = await (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf')) as Object3D;
+        let duck = await (await Engine3D.res.loadGltf('PBR/Duck/Duck.gltf')) as Object3D;
         let duckGeometry = duck.getComponents(MeshRenderer)[0].geometry;
         this.geometries.push(duckGeometry);
 

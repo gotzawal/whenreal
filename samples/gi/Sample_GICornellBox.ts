@@ -72,7 +72,7 @@ class Sample_GICornellBox {
     }
 
     async initScene() {
-        let box = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/cornellBox/cornellBox.gltf') as Object3D;
+        let box = await Engine3D.res.loadGltf('gltfs/cornellBox/cornellBox.gltf') as Object3D;
         box.localScale = new Vector3(10, 10, 10);
         this.scene.addChild(box);
     }

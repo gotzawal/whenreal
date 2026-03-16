@@ -19,7 +19,7 @@ export class Sample_LoadGLB {
         this.scene = ex.scene;
         this.scene.removeComponent(AtmosphericComponent);
         let sky = this.scene.getOrAddComponent(SkyRenderer);
-        let skyMap = await Engine3D.res.loadLDRTextureCube('https://cdn.orillusion.com/sky/LDR_sky.jpg')
+        let skyMap = await Engine3D.res.loadLDRTextureCube('sky/LDR_sky.jpg')
         sky.map = skyMap;
         this.scene.envMap = skyMap;
 
@@ -53,37 +53,37 @@ export class Sample_LoadGLB {
         //model list
         let list = {
             "HIE-Hand-Armor": {
-                url: `https://cdn.orillusion.com/gltfs/glb/HIE-Hand-Armor.glb`,
+                url: `gltfs/glb/HIE-Hand-Armor.glb`,
                 scale: 1,
                 offset: [0, 0, 0],
                 rotation: [0, 0, 0]
             },
             "PebsiCan": {
-                url: `https://cdn.orillusion.com/gltfs/glb/PebsiCan.glb`,
+                url: `gltfs/glb/PebsiCan.glb`,
                 scale: 1,
                 offset: [0, 3, 0],
                 rotation: [0, 0, 0]
             },
             "Liv-SpecOpsWolf": {
-                url: `https://cdn.orillusion.com/gltfs/glb/Liv-SpecOpsWolf.glb`,
+                url: `gltfs/glb/Liv-SpecOpsWolf.glb`,
                 scale: 20,
                 offset: [0, 0, 0],
                 rotation: [0, 0, 0]
             },
             "FlamingoPool": {
-                url: `https://cdn.orillusion.com/gltfs/glb/FlamingoPool.glb`,
+                url: `gltfs/glb/FlamingoPool.glb`,
                 scale: 0.5,
                 offset: [0, 0, 0],
                 rotation: [180, 0, 0]
             },
             "PotionBottle": {
-                url: `https://cdn.orillusion.com/gltfs/glb/PotionBottle.glb`,
+                url: `gltfs/glb/PotionBottle.glb`,
                 scale: 0.1,
                 offset: [0, 0, 0],
                 rotation: [0, 0, 0]
             },
             "wukong": {
-                url: `https://cdn.orillusion.com/gltfs/wukong/wukong.gltf`,
+                url: `gltfs/wukong/wukong.gltf`,
                 scale: 10,
                 offset: [0, 0, 0],
                 rotation: [0, 0, 0]

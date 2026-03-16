@@ -32,7 +32,7 @@ export class Sample_CarPaint {
 
 		this.scene = new Scene3D();
 		let sky = this.scene.getOrAddComponent(SkyRenderer);
-		sky.map = await Engine3D.res.loadTextureCubeStd('https://cdn.orillusion.com/sky/LDR_sky.jpg');
+		sky.map = await Engine3D.res.loadTextureCubeStd('sky/LDR_sky.jpg');
 		sky.exposure = 1.0;
 		sky.useSkyReflection();
 		// sky.enable = false;
@@ -132,7 +132,7 @@ export class Sample_CarPaint {
 		}
 
 		// let giScene = await Engine3D.res.loadGltf("gltfs/pbrCar/car.gltf");
-		let giScene = await Engine3D.res.loadGltf("https://cdn.orillusion.com/gltfs/scene/ue5_006.glb");
+		let giScene = await Engine3D.res.loadGltf("gltfs/scene/ue5_006.glb");
 		// let giScene = await Engine3D.res.loadGltf("gltfs/scene/测试汽车1.gltf");
 		// let giScene = await Engine3D.res.loadGltf("gltfs/scene/测试汽车.glb");
 

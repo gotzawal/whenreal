@@ -41,7 +41,7 @@ class Sample_PixelPick {
 
     private async initPickObject(scene: Scene3D) {
         //load model
-        let wukong = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf');
+        let wukong = await Engine3D.res.loadGltf('gltfs/wukong/wukong.gltf');
         this.scene.addChild(wukong);
 
         wukong.transform.x = 50;
