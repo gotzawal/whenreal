@@ -1,4 +1,21 @@
-![Cover Art](https://github.com/Orillusion/orillusion-webgpu-samples/blob/main/logo_new.png)     
+## Quick Start
+
+```bash
+# 의존성 설치
+pnpm install
+
+# 엔진 빌드
+pnpm run build
+
+# 샘플 실행 (http://localhost:8000)
+pnpm dev
+```
+
+샘플 에셋은 `samples/public/`에 포함되어 있으며, `pnpm dev` 실행 시 자동으로 제공됩니다.
+
+---
+
+![Cover Art](https://github.com/Orillusion/orillusion-webgpu-samples/blob/main/logo_new.png)
 ## Orillusion
 
 [![Test](https://github.com/Orillusion/orillusion/actions/workflows/ci.yml/badge.svg)](https://github.com/Orillusion/orillusion/actions/workflows/ci.yml)
