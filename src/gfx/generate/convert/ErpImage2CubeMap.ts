@@ -34,7 +34,7 @@ export class ErpImage2CubeMap {
             size: data.byteLength,
             usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST | GPUBufferUsage.COPY_SRC,
         });
-        device.queue.writeBuffer(input, 0, data);
+        device.queue.writeBuffer(input, 0, data as Float32Array<ArrayBuffer>);
 
         //entries0
         let entries0 = [

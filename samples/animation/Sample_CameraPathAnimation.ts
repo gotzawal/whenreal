@@ -132,7 +132,7 @@ class Sample_CameraPathAnimation {
 
         // 加载场景模型（渲染视图前加载会影响坐标轴组件的拾取精准度）
         // https://cdn.orillusion.com/gltfs/glb/BuildingWithCharacters/scene.glb
-        let model = await Engine3D.res.loadGltf('gltfs/glb/BuildingWithCharacters.glb');
+        let model = await Engine3D.res.loadGltf('PBR/Duck/Duck.gltf') as Object3D;
         model.scaleX = model.scaleY = model.scaleZ = 0.3;
         scene.addChild(model);
 
@@ -382,6 +382,7 @@ class Sample_CameraPathAnimation {
 class AxisController extends ComponentBase {
     public view: View3D;
     public cameraCtrl: { enable: boolean } | undefined;
+    public graphic3D: Graphic3D;
 
     // 坐标轴对象
     private axisObject: Object3D;
@@ -453,7 +454,7 @@ class AxisController extends ComponentBase {
         Vector3.HELP_1.copyFrom(targetPos)[axis] += 10000;
 
         // const color = { 'x': Color.COLOR_RED, 'y': Color.COLOR_GREEN, 'z': Color.COLOR_BLUE }[axis]
-        this.view.graphic3D.drawLines('referenceLine', [Vector3.HELP_0, Vector3.HELP_1]); //  创建一条参考线
+        this.graphic3D.drawLines('referenceLine', [Vector3.HELP_0, Vector3.HELP_1]); //  创建一条参考线
 
         // 计算坐标轴对象当前的坐标与交点的偏移量，以便后续拖动时修正位置
         let intersection = this.calculateIntersectionPoint(this.view.camera, targetPos);
@@ -466,7 +467,7 @@ class AxisController extends ComponentBase {
         if (!this.selectedAxis || !this.selectedTarget || !this.enable) return;
         this.selectedAxis = null;
         this.cameraCtrl.enable = true;
-        this.view.graphic3D.Clear('referenceLine');
+        this.graphic3D.Clear('referenceLine');
     }
 
     private onPointerMove(e: PointerEvent3D) {

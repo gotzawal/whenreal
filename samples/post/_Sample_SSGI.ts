@@ -6,7 +6,6 @@ import {
 } from '@orillusion/core';
 import { GUIHelp } from '@orillusion/debug/GUIHelp';
 import { Stats } from '@orillusion/stats';
-import { PhysicTransformController } from '@samples/physics/helps/components/PhysicTransformController';
 import { GUIUtil } from '@samples/utils/GUIUtil';
 
 export class Sample_SSGI {

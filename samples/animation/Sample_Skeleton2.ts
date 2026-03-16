@@ -60,15 +60,17 @@ class Sample_Skeleton2 {
 
         {
             // load model with skeletion animation
-            let rootNode = await Engine3D.res.loadGltf('gltfs/glb/Soldier.glb');
-            let character = rootNode.getObjectByName('Character') as Object3D;
-            character.scaleX = 0.3;
-            character.scaleY = 0.3;
-            character.scaleZ = 0.3;
-            character.rotationY = 180;
+            let rootNode = await Engine3D.res.loadGltf('gltfs/CesiumMan/CesiumMan_compress.gltf');
+            rootNode.scaleX = 30;
+            rootNode.scaleY = 30;
+            rootNode.scaleZ = 30;
+            rootNode.rotationZ = 90;
+
+            let character = rootNode;
 
             // enum animation names
-            var animName = ['Idle', 'Walk', 'Run', 'TPose'];
+            let animator = character.getComponentsInChild(AnimatorComponent)[0];
+            var animName = animator.clips.map(c => c.clipName);
             let maxCount = 100;
             let maxCol = 10;
             let maxRow = Math.floor(maxCount / maxCol);

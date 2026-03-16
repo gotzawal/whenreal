@@ -60,34 +60,10 @@ class Sample_LoadGLTF {
         }
 
         {
-            /******** player1 *******/
-            let player1 = (await Engine3D.res.loadGltf('gltfs/anim/Minion_Lane_Super_Dawn/Minion_Lane_Super_Dawn.glb', {})) as Object3D;
-            player1.transform.x = -10;
-            player1.transform.y = -10;
-            player1.transform.z = 20;
-            player1.transform.scaleX = 10;
-            player1.transform.scaleY = 10;
-            player1.transform.scaleZ = 10;
-            this.scene.addChild(player1);
-
-            /******** player2 *******/
-            let player2 = (await Engine3D.res.loadGltf('gltfs/anim/Minion_Lane_Super_Dawn/Prime_Helix.glb', {})) as Object3D;
-            player2.transform.x = 10;
-            player2.transform.y = -10;
-            player2.transform.scaleX = 10;
-            player2.transform.scaleY = 10;
-            player2.transform.scaleZ = 10;
-            this.scene.addChild(player2);
-
-            /******** player3 *******/
-            let player3 = (await Engine3D.res.loadGltf('gltfs/anim/Minion_Lane_Super_Dawn/Minion_Lane_Ranged_Dusk.glb', {})) as Object3D;
-            player3.transform.x = 10;
-            player3.transform.y = -10;
-            player3.transform.z = 20;
-            player3.transform.scaleX = 10;
-            player3.transform.scaleY = 10;
-            player3.transform.scaleZ = 10;
-            this.scene.addChild(player3);
+            let chair = await Engine3D.res.loadGltf('PBR/SheenChair/SheenChair.gltf') as Object3D;
+            chair.scaleX = chair.scaleY = chair.scaleZ = 60;
+            chair.rotationZ = chair.rotationX = 45;
+            this.scene.addChild(chair);
         }
     }
 }

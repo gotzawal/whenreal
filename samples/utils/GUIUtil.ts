@@ -334,7 +334,7 @@ export class GUIUtil {
                 const rayNumber = Engine3D.setting.gi.rayNumber;
                 for (let i = 0; i < rayNumber; i++) {
                     let id = `showRays${probeIndex}${i}`;
-                    view.graphic3D.Clear(id);
+                    (view.scene as any).graphic3D?.Clear(id);
                 }
             }
         });
