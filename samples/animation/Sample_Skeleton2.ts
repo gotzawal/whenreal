@@ -60,7 +60,7 @@ class Sample_Skeleton2 {
 
         {
             // load model with skeletion animation
-            let rootNode = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/Soldier.glb');
+            let rootNode = await Engine3D.res.loadGltf('gltfs/glb/Soldier.glb');
             let character = rootNode.getObjectByName('Character') as Object3D;
             character.scaleX = 0.3;
             character.scaleY = 0.3;

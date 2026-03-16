@@ -32,7 +32,7 @@ export class Demo_Flame {
     }
 
     async initScene(scene: Scene3D) {
-        let cesiumMan = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/CesiumMan/CesiumMan.gltf');
+        let cesiumMan = await Engine3D.res.loadGltf('gltfs/CesiumMan/CesiumMan.gltf');
         // cesiumMan.transform.localScale.set(10, 10, 10);
         cesiumMan.rotationX = -90;
         cesiumMan.rotationY = 180;

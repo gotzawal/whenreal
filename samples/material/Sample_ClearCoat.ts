@@ -41,7 +41,7 @@ class Sample_ClearCoat {
             // sky.map = tex;
             // sky.enable = true;
             let sky = this.scene.getOrAddComponent(SkyRenderer);
-            sky.map = await Engine3D.res.loadHDRTextureCube('https://cdn.orillusion.com/hdri/sunset.hdr');
+            sky.map = await Engine3D.res.loadHDRTextureCube('/hdri/sunset.hdr');
             this.scene.envMap = sky.map;
         }
         /******** light *******/
@@ -72,7 +72,7 @@ class Sample_ClearCoat {
             // model.transform.scaleZ = 10;
             // model.transform.y = -5;
 
-            let clearCoatRoughnessTex = await Engine3D.res.loadTexture("https://cdn.orillusion.com/materials/T_Imperfections_FingerPrints_Mask2.jpg");
+            let clearCoatRoughnessTex = await Engine3D.res.loadTexture("materials/T_Imperfections_FingerPrints_Mask2.jpg");
 
             // this.scene.addChild(model);
             let space = 50;

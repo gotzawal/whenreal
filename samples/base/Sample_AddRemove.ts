@@ -63,7 +63,7 @@ class Sample_AddRemove {
 
     private async test() {
         let list: Object3D[] = [];
-        let player = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/anim/Minion_Lane_Super_Dawn/Minion_Lane_Super_Dawn.glb');
+        let player = await Engine3D.res.loadGltf('gltfs/anim/Minion_Lane_Super_Dawn/Minion_Lane_Super_Dawn.glb');
         // gui
         GUIHelp.init();
         GUIHelp.addButton("add", async () => {
