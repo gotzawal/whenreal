@@ -40,12 +40,12 @@ class Sample_Skeleton3 {
 
     async initScene(scene: Scene3D) {
         {
-            let rootNode = await Engine3D.res.loadGltf('gltfs/glb/Soldier_draco.glb');
-            this.character = rootNode.getObjectByName('Character') as Object3D;
-            this.character.scaleX = 0.3;
-            this.character.scaleY = 0.3;
-            this.character.scaleZ = 0.3;
-            this.character.rotationY = 180;
+            let rootNode = await Engine3D.res.loadGltf('gltfs/CesiumMan/CesiumMan_compress.gltf');
+            this.character = rootNode;
+            this.character.scaleX = 30;
+            this.character.scaleY = 30;
+            this.character.scaleZ = 30;
+            this.character.rotationZ = 90;
             scene.addChild(this.character);
 
 
