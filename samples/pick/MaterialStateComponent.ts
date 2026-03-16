@@ -1,7 +1,7 @@
-import { ComponentBase, MaterialBase, MeshRenderer, LitMaterial, Color, Interpolator, Engine3D } from "@orillusion/core";
+import { ComponentBase, Material, MeshRenderer, LitMaterial, Color, Interpolator, Engine3D } from "@orillusion/core";
 
 export class MaterialStateComponent extends ComponentBase {
-    private _materials: MaterialBase[];
+    private _materials: Material[];
 
     start() {
         let renderer = this.object3D.getComponent(MeshRenderer);

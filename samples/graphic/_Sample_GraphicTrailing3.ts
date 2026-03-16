@@ -2,7 +2,7 @@ import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, UnLitTexArrayMaterial, BitmapTexture2DArray, BitmapTexture2D, Vector3, Matrix4, BlendMode, Color, PostProcessingComponent, BloomPost } from "@orillusion/core";
 import { GUIUtil } from "@samples/utils/GUIUtil";
 import { Stats } from "@orillusion/stats";
-import { Graphic3D } from "@orillusion/graphic";
+import { Graphic3D, Graphic3DMesh } from "@orillusion/graphic";
 
 export class Sample_GraphicTrailing3 {
     lightObj3D: Object3D;

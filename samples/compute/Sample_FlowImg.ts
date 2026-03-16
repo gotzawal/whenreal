@@ -39,7 +39,7 @@ export class Demo_FlowImg {
         input.style.position = 'fixed'
         document.body.appendChild(input)
         input.onchange= async (e)=>{
-            let url = URL.createObjectURL(e.target.files[0])
+            let url = URL.createObjectURL((e.target as HTMLInputElement).files[0])
             let image = await this.imageloader(url)
             simulator.setImageData(image);
             simulator.reset()
