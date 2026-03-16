@@ -32,7 +32,7 @@ export class Uint8ArrayTexture extends Texture {
             usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.COPY_SRC,
         }));
 
-        device.queue.writeBuffer(textureDataBuffer, 0, data);
+        device.queue.writeBuffer(textureDataBuffer, 0, data as Uint8Array<ArrayBuffer>);
         const commandEncoder = GPUContext.beginCommandEncoder();
         commandEncoder.copyBufferToTexture(
             {
@@ -72,7 +72,7 @@ export class Uint8ArrayTexture extends Texture {
             usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.COPY_SRC,
         }));
 
-        device.queue.writeBuffer(textureDataBuffer, 0, data);
+        device.queue.writeBuffer(textureDataBuffer, 0, data as Uint8Array<ArrayBuffer>);
         const commandEncoder = GPUContext.beginCommandEncoder();
         commandEncoder.copyBufferToTexture(
             {

@@ -196,7 +196,7 @@ export class ShadowLightsCollect {
             group.dirShadowEnd = nDirShadowEnd;
             group.pointShadowStart = nPointShadowStart;
             group.pointShadowEnd = nPointShadowEnd;
-            group.shadowLights = shadowLights;
+            group.shadowLights = shadowLights as Float32Array<ArrayBuffer>;
         });
     }
 }

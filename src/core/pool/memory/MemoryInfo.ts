@@ -1,4 +1,5 @@
 import { FloatArray } from '@orillusion/wasm-matrix/WasmMatrix';
+import { ArrayBufferData } from '../../../gfx/graphics/webGpu/core/buffer/ArrayBufferData';
 import { Color } from '../../../math/Color';
 import { Quaternion } from '../../../math/Quaternion';
 import { Vector2 } from '../../../math/Vector2';
@@ -188,7 +189,7 @@ export class MemoryInfo {
         tmp.set(data);
     }
 
-    public setArrayBuffer(index: number, arrayBuffer: ArrayBuffer) {
+    public setArrayBuffer(index: number, arrayBuffer: ArrayBuffer | ArrayBufferData) {
         if (arrayBuffer instanceof Uint8Array) {
             this.setUint8Array(index, arrayBuffer);
         } else if (arrayBuffer instanceof Uint16Array) {

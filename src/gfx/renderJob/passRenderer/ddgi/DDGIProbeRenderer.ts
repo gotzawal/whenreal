@@ -357,7 +357,7 @@ export class DDGIProbeRenderer extends RendererBase {
             usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.COPY_SRC,
         });
 
-        webGPUContext.device.queue.writeBuffer(buffer, 0, array);
+        webGPUContext.device.queue.writeBuffer(buffer, 0, array as Float32Array<ArrayBuffer>);
         const commandEncoder = GPUContext.beginCommandEncoder();
         commandEncoder.copyBufferToTexture(
             {

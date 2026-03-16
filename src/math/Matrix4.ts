@@ -125,7 +125,7 @@ export class Matrix4 {
         this.allocCount = allocCount;
 
         Matrix4.dynamicMatrixBytes = WasmMatrix.matrixBuffer;
-        Matrix4.buffer = Matrix4.dynamicMatrixBytes.buffer;
+        Matrix4.buffer = Matrix4.dynamicMatrixBytes.buffer as ArrayBuffer;
         Matrix4.wasmMatrixPtr = WasmMatrix.matrixBufferPtr;
 
         this.dynamicGlobalMatrixRef ||= [];
