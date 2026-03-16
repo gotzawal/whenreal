@@ -54,8 +54,8 @@ export class Sample_MorphTarget {
 
     private async initMorphModel() {
 
-        // load lion model
-        let model = await Engine3D.res.loadGltf('gltfs/glb/lion.glb');
+        // load duck model
+        let model = await Engine3D.res.loadGltf('PBR/Duck/Duck.gltf') as Object3D;
         model.y = -80.0;
         model.x = -30.0;
         this.scene.addChild(model);

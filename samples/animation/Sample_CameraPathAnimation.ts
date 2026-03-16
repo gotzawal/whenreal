@@ -132,7 +132,7 @@ class Sample_CameraPathAnimation {
 
         // 加载场景模型（渲染视图前加载会影响坐标轴组件的拾取精准度）
         // https://cdn.orillusion.com/gltfs/glb/BuildingWithCharacters/scene.glb
-        let model = await Engine3D.res.loadGltf('gltfs/glb/BuildingWithCharacters.glb');
+        let model = await Engine3D.res.loadGltf('PBR/Duck/Duck.gltf') as Object3D;
         model.scaleX = model.scaleY = model.scaleZ = 0.3;
         scene.addChild(model);
 
