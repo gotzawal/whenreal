@@ -24,6 +24,3 @@ dist
 
 /.vscode
 /.labe
-
-# sample assets (managed locally)
-samples/public/
