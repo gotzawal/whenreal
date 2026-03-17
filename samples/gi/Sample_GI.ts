@@ -133,7 +133,7 @@ class Sample_GI {
 
         {
             let car = await Engine3D.res.loadGltf('gltfs/glb/DamagedHelmet.glb');
-            car.scaleX = car.scaleY = car.scaleZ = 1.5;
+            car.scaleX = car.scaleY = car.scaleZ = 30;
             car.x = 20;
             obj3dList.push(car);
         }
