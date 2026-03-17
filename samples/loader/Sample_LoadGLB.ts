@@ -52,33 +52,9 @@ export class Sample_LoadGLB {
 
         //model list
         let list = {
-            "HIE-Hand-Armor": {
-                url: `gltfs/glb/HIE-Hand-Armor.glb`,
-                scale: 1,
-                offset: [0, 0, 0],
-                rotation: [0, 0, 0]
-            },
-            "PebsiCan": {
-                url: `gltfs/glb/PebsiCan.glb`,
-                scale: 1,
-                offset: [0, 3, 0],
-                rotation: [0, 0, 0]
-            },
-            "Liv-SpecOpsWolf": {
-                url: `gltfs/glb/Liv-SpecOpsWolf.glb`,
-                scale: 20,
-                offset: [0, 0, 0],
-                rotation: [0, 0, 0]
-            },
-            "FlamingoPool": {
-                url: `gltfs/glb/FlamingoPool.glb`,
-                scale: 0.5,
-                offset: [0, 0, 0],
-                rotation: [180, 0, 0]
-            },
-            "PotionBottle": {
-                url: `gltfs/glb/PotionBottle.glb`,
-                scale: 0.1,
+            "Soldier": {
+                url: `gltfs/glb/Soldier_draco.glb`,
+                scale: 30,
                 offset: [0, 0, 0],
                 rotation: [0, 0, 0]
             },
@@ -87,15 +63,27 @@ export class Sample_LoadGLB {
                 scale: 10,
                 offset: [0, 0, 0],
                 rotation: [0, 0, 0]
+            },
+            "pbrCar": {
+                url: `gltfs/pbrCar/pbrCar.gltf`,
+                scale: 1,
+                offset: [0, 0, 0],
+                rotation: [0, 0, 0]
+            },
+            "CesiumMan": {
+                url: `gltfs/CesiumMan/CesiumMan_compress.gltf`,
+                scale: 30,
+                offset: [0, 0, 0],
+                rotation: [0, 0, 0]
             }
         };
 
 
-        GUIHelp.add({ Model: `HIE-Hand-Armor` }, 'Model', Object.keys(list)).onChange(async (v) => {
+        GUIHelp.add({ Model: `Soldier` }, 'Model', Object.keys(list)).onChange(async (v) => {
             let { url, scale, offset, rotation } = list[v];
             this.loadGLB(url, offset, scale, rotation);
         });
-        let { url, scale, offset, rotation } = list[`HIE-Hand-Armor`];
+        let { url, scale, offset, rotation } = list[`Soldier`];
         this.loadGLB(url, offset, scale, rotation);
     }
 

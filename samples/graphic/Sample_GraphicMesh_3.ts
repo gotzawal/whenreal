@@ -52,7 +52,7 @@ export class Sample_GraphicMesh_3 {
 
     async initScene() {
         let texts = [];
-        let node = await Engine3D.res.loadGltf("gltfs/glb/beer.glb") as Object3D;
+        let node = await Engine3D.res.loadGltf("gltfs/glb/Soldier_draco.glb") as Object3D;
         let geo = node.getComponents(MeshRenderer)[0].geometry;
         texts.push(Engine3D.res.yellowTexture);
 
