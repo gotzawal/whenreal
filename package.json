@@ -41,19 +41,15 @@
         "build:geometry": "cd packages/geometry && npm run build",
         "build:types": "tsc --emitDeclarationOnly -p tsconfig.build.json && rm -rf dist/packages && mv dist/src dist/types",
         "minify": "esbuild dist/orillusion.es.max.js --sourcemap --minify --outfile=dist/orillusion.es.js && esbuild dist/orillusion.umd.max.js --minify --sourcemap --outfile=dist/orillusion.umd.js",
-        "test": "vitest run",
-        "test:unit": "vitest run",
-        "test:browser": "playwright test",
-        "test:ci": "vitest run && playwright test"
+        "test": "cd test && npm test",
+        "test:unit": "cd test && npm run test:unit",
+        "test:browser": "cd test && npm run test:browser",
+        "test:ci": "cd test && npm run test:ci"
     },
     "devDependencies": {
-        "@playwright/test": "^1.53.0",
-        "@vitest/browser": "^4.1.0",
-        "@vitest/browser-playwright": "^4.1.0",
         "@webgpu/types": "^0.1.45",
         "esbuild": "^0.27.4",
         "typescript": "^5.9.3",
-        "vite": "^5.3.1",
-        "vitest": "^4.1.0"
+        "vite": "^5.3.1"
     }
 }

@@ -2,15 +2,17 @@ import { defineConfig } from 'vitest/config'
 import { resolve } from 'path'
 import { playwright } from '@vitest/browser-playwright'
 
+const root = resolve(__dirname, '..')
+
 export default defineConfig({
     resolve: {
         alias: {
-            '@orillusion/core': resolve(__dirname, './src/index.ts'),
-            '@orillusion': resolve(__dirname, './packages'),
+            '@orillusion/core': resolve(root, './src/index.ts'),
+            '@orillusion': resolve(root, './packages'),
         },
     },
     test: {
-        include: ['test/unit/**/*.test.ts'],
+        include: ['unit/**/*.test.ts'],
         testTimeout: 30000,
         browser: {
             enabled: true,

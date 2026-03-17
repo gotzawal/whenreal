@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
-    testDir: './test/browser',
+    testDir: './browser',
     timeout: 60000,
     retries: 0,
     use: {
@@ -9,6 +9,7 @@ export default defineConfig({
     },
     webServer: {
         command: 'npx vite --port 4000 --strictPort',
+        cwd: '..',
         port: 4000,
         reuseExistingServer: true,
     },

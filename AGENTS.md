@@ -18,6 +18,12 @@ npx tsc --p tsconfig.build.json --noEmit
 
 ## Test
 
+Test dependencies and configs live in `test/`. Install separately:
+
+```bash
+cd test && npm install
+```
+
 Tests are split into two layers:
 
 ### 1. Unit Test (Vitest) — No WebGPU Required
@@ -26,11 +32,13 @@ Pure logic tests. Runs in headless Chromium via Vitest + `@vitest/browser-playwr
 Works without WebGPU, can run anywhere.
 
 ```bash
-npm test              # = npm run test:unit
-npm run test:unit     # vitest run
+npm test              # from root, delegates to test/
+npm run test:unit
+# or directly:
+cd test && npx vitest run
 ```
 
-- Config: `vitest.config.ts`
+- Config: `test/vitest.config.ts`
 - Location: `test/unit/**/*.test.ts`
 - Covers: math (Vector2/3/4, Matrix3/4, Quaternion, Ray, Plane, Triangle, Rect, UV, Color, Rand, HaltonSeq, Bezier2D, AnimationCurve, MatrixDO), EventSystem
 - 18 files, 76 tests
@@ -40,10 +48,12 @@ npm run test:unit     # vitest run
 GPU/rendering tests. Launches Chromium via Playwright, loads test modules through Vite dev server in iframes.
 
 ```bash
-npm run test:browser  # playwright test
+npm run test:browser
+# or directly:
+cd test && npx playwright test
 ```
 
-- Config: `playwright.config.ts`
+- Config: `test/playwright.config.ts`
 - Location: `test/browser/**/*.spec.ts`
 - Vite server starts automatically (port 4000)
 - Chromium launched with `--enable-unsafe-webgpu`, `--use-webgpu-adapter=swiftshader`, etc.
