@@ -333,7 +333,7 @@ export class GPUBufferBase {
         node.setUint32Array(0, data);
     }
 
-    public setStruct<T extends Struct>(c: { new(): T }, index: number, data: any, property?: string) {
+    public setStruct<T extends Struct>(c: { new(): T }, index: number, data: T, property?: string) {
         let ref = Struct.Ref(c);
         let size = Struct.GetSize(c);
 
@@ -353,6 +353,7 @@ export class GPUBufferBase {
         }
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private writeValue(node: MemoryInfo, att: { name: string, type: string }, value: any) {
         switch (att.type) {
             case `Boolean`:
@@ -393,7 +394,7 @@ export class GPUBufferBase {
         }
     }
 
-    public setStructArray<T extends Struct>(c: { new(): T }, dataList: any[], property?: string) {
+    public setStructArray<T extends Struct>(c: { new(): T }, dataList: T[], property?: string) {
         let len = dataList.length;
         for (let i = 0; i < len; i++) {
             const data = dataList[i];
