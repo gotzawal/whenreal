@@ -25,7 +25,7 @@ export class Sample_UIMultiPanel {
         // enable ui canvas at index 0
         let canvas = exampleScene.view.enableUICanvas();
 
-        let car = await Engine3D.res.loadGltf('gltfs/pbrCar/pbrCar.gltf');
+        let car = await Engine3D.res.loadGltf('gltfs/glb/DamagedHelmet.glb');
         car.localScale = new Vector3(1.5, 1.5, 1.5);
 
         this.scene.addChild(car);

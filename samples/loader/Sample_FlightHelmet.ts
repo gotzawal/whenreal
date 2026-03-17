@@ -74,7 +74,7 @@ class Sample_FlightHelmet {
 
         /******** load model *******/
         {
-            let model = (await Engine3D.res.loadGltf('PBR/FlightHelmet/FlightHelmet.gltf', {})) as Object3D;
+            let model = (await Engine3D.res.loadGltf('gltfs/wukong/wukong.gltf', {})) as Object3D;
             model.transform.scaleX = 10;
             model.transform.scaleY = 10;
             model.transform.scaleZ = 10;

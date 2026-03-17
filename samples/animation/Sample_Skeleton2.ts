@@ -59,12 +59,11 @@ class Sample_Skeleton2 {
         }
 
         {
-            // load model with skeletion animation
-            let rootNode = await Engine3D.res.loadGltf('gltfs/CesiumMan/CesiumMan_compress.gltf');
+            // load model with skeleton animation
+            let rootNode = await Engine3D.res.loadGltf('gltfs/glb/Soldier_draco.glb');
             rootNode.scaleX = 30;
             rootNode.scaleY = 30;
             rootNode.scaleZ = 30;
-            rootNode.rotationZ = 90;
 
             let character = rootNode;
 
@@ -83,7 +82,8 @@ class Sample_Skeleton2 {
 
                 cloneObj.x = (maxCol * -0.5 + col) * 30;
                 cloneObj.z = (maxRow * -0.5 + row) * 30;
-                cloneObj.rotationX = -90;
+                cloneObj.rotationX = 0;
+                cloneObj.y = 1;
                 scene.addChild(cloneObj);
 
                 let animation = cloneObj.getComponentsInChild(AnimatorComponent)[0];
