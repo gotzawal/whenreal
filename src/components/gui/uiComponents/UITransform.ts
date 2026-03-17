@@ -34,7 +34,7 @@ export class UITransform extends ComponentBase {
         this._worldMatrix = new Matrix3();
     }
 
-    public init(param?: unknown): void {
+    public init(param?: any): void {
         super.init(param);
         this.transform.eventDispatcher.addEventListener(this.transform.eventLocalChange.type, this.onTransformChange, this);
         this.onParentChange(null, this.object3D.parent?.object3D);

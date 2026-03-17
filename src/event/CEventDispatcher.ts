@@ -15,7 +15,7 @@ export class CEventDispatcher {
     /**
      * @internal
      */
-    public data: unknown;
+    public data: any;
     /**
      *
      * Dispatch an event to all registered objects with a specific type of listener.
@@ -76,7 +76,7 @@ export class CEventDispatcher {
      * @param priority {number} The priority of callback function execution, with a larger set value having priority to call
      * @returns {number} Returns register event id
      */
-    public addEventListener(type: string | number, callback: Function, thisObject: object, param: unknown = null, priority: number = 0): number {
+    public addEventListener(type: string | number, callback: Function, thisObject: any, param: any = null, priority: number = 0): number {
         if (this.listeners[type] == null) {
             this.listeners[type] = [];
         }
@@ -110,7 +110,7 @@ export class CEventDispatcher {
      * @param callback {Function} callback function of event register
      * @param thisObject {any} The current registered object.
      */
-    public removeEventListener(type: string | number, callback: Function, thisObject: object): void {
+    public removeEventListener(type: string | number, callback: Function, thisObject: any): void {
         if (this.hasEventListener(type, callback, thisObject)) {
             for (var i: number = 0; i < this.listeners[type].length; i++) {
                 var listener: CEventListener = this.listeners[type][i];
@@ -195,7 +195,7 @@ export class CEventDispatcher {
      * @param thisObject {any} The registered object.
      * @returns {boolean} Returns a boolean.
      */
-    public hasEventListener(type: string | number, callback: Function = null, thisObject: object = null): boolean {
+    public hasEventListener(type: string | number, callback: Function = null, thisObject: any = null): boolean {
         if (this.listeners[type] == null) return false;
         if (thisObject && callback) {
             for (var i: number = 0; i < this.listeners[type].length; i++) {

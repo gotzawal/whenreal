@@ -30,7 +30,7 @@ export class UIInteractive extends UIComponentBase implements IUIInteractive {
         return this._uiTransform.globalVisible && this._visible;
     }
 
-    init(param?: unknown) {
+    init(param?: any) {
         super.init(param);
         this._uiTransform.addUIInteractive(this);
     }

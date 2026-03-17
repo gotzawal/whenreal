@@ -168,6 +168,6 @@ export class I3DMLoader extends I3DMLoaderBase {
         model['batchTable'] = batchTable;
         model['featureTable'] = featureTable;
 
-        return model as unknown as Object3D;
+        return model as any as Object3D;
     }
 }

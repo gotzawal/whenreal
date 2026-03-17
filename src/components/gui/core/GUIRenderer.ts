@@ -20,7 +20,7 @@ export class GUIRenderer extends MeshRenderer {
      * init renderer
      * @returns
      */
-    init(param?: unknown) {
+    init(param?: any) {
         super.init();
         this.addRendererMask(RendererMask.UI);
 

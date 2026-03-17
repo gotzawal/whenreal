@@ -28,7 +28,7 @@ export class UIComponentBase extends ComponentBase {
         }
     }
 
-    init(param?: unknown) {
+    init(param?: any) {
         super.init?.(param);
         this._uiTransform = this.object3D.getOrAddComponent(UITransform);
         this._uiTransform.setNeedUpdateUIPanel();

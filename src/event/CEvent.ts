@@ -25,13 +25,13 @@ export class CEvent {
     /**
      * extra data.Used for the transmission process of events, carrying data
      */
-    public data?: unknown;
+    public data?: any;
 
     /**
      *
      * The param data when event is registered
      */
-    public param: unknown;
+    public param: any;
 
     /**
      *
@@ -99,7 +99,7 @@ export class CEvent {
      * @param eventType {any} eventType
      * @param data {any} param
      */
-    constructor(eventType: string = null, data: unknown = null) {
+    constructor(eventType: string = null, data: any = null) {
         this.type = eventType;
         this.data = data;
     }

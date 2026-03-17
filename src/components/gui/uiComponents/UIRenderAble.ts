@@ -13,7 +13,7 @@ export class UIRenderAble extends UIComponentBase {
     public isShadowless?: boolean;//no shadow
     public needUpdateShadow: boolean;
 
-    init(param?: unknown): void {
+    init(param?: any): void {
         super.init?.(param);
         this._mainQuads = [];
     }
@@ -61,7 +61,7 @@ export class UIRenderAble extends UIComponentBase {
         let values = this.object3D.components.values();
         if (!source) {
             for (let i of values) {
-                let item = i as unknown as UIRenderAble;
+                let item = i as any as UIRenderAble;
                 if (item.isShadowless || item.isUIShadow) continue;
                 if (item.mainQuads) {
                     source = item;
@@ -72,7 +72,7 @@ export class UIRenderAble extends UIComponentBase {
 
         if (!shadow) {
             for (let i of values) {
-                let item = i as unknown as UIRenderAble;
+                let item = i as any as UIRenderAble;
                 if (item.isUIShadow && item.mainQuads) {
                     shadow = item;
                     break;

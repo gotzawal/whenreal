@@ -20,7 +20,7 @@ export class InstanceDrawComponent extends RenderNode {
         super();
     }
 
-    public init(param?: unknown): void {
+    public init(param?: any): void {
         this._keyRenderGroup = new Map<string, MeshRenderer[]>();
         this._keyBufferGroup = new Map<string, StorageGPUBuffer>();
         this._keyIdsGroup = new Map<string, number[]>();

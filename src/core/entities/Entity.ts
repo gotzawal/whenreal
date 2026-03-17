@@ -323,7 +323,7 @@ export class Entity extends CEventDispatcher {
         }
     }
 
-    public noticeComponents(key: keyof IComponent, data: unknown) {
+    public noticeComponents(key: keyof IComponent, data: any) {
         for (let item of this.components.values()) {
             let typeKey = key as string;
             item[typeKey]?.(data);

@@ -59,7 +59,7 @@ export class B3DMLoader extends B3DMLoaderBase {
         model['batchTable'] = batchTable;
         model['featureTable'] = featureTable;
 
-        return model as unknown as Object3D;
+        return model as any as Object3D;
     }
 
 

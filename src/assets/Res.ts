@@ -42,7 +42,7 @@ export class Res {
     private _gltfPool: Map<string, GLTF_Info>;
     private _geometryPool: Map<string, GeometryBase>;
     private _atlasList: Map<string, GUIAtlasTexture>;
-    private _obj: Map<string, unknown>;
+    private _obj: Map<string, any>;
 
     /**
      * @constructor
@@ -55,7 +55,7 @@ export class Res {
         // this._prefabLoaderPool = new Map<string, PrefabLoader>;
         this._gltfPool = new Map<string, GLTF_Info>;
         this._atlasList = new Map<string, GUIAtlasTexture>();
-        this._obj = new Map<string, unknown>();
+        this._obj = new Map<string, any>();
         // this.initDefault();
     }
 
@@ -68,7 +68,7 @@ export class Res {
    * @param url file path
    * @param texture source obj
    */
-    public addObj(url: string, obj: unknown) {
+    public addObj(url: string, obj: any) {
         this._obj.set(url, obj);
     }
 
@@ -77,7 +77,7 @@ export class Res {
      * @param url file path
      * @returns
      */
-    public getObj(url: string): unknown {
+    public getObj(url: string): any {
         return this._obj.get(url);
     }
 
@@ -225,7 +225,7 @@ export class Res {
      * @param loaderFunctions callback
      * @returns
      */
-    public async loadB3DM(url: string, loaderFunctions?: LoaderFunctions, userData?: unknown): Promise<Object3D> {
+    public async loadB3DM(url: string, loaderFunctions?: LoaderFunctions, userData?: any): Promise<Object3D> {
         if (this._prefabPool.has(url)) {
             return this._prefabPool.get(url) as Object3D;
         }
@@ -242,7 +242,7 @@ export class Res {
      * @param loaderFunctions callback
      * @returns
      */
-    public async loadI3DM(url: string, loaderFunctions?: LoaderFunctions, userData?: unknown): Promise<Object3D> {
+    public async loadI3DM(url: string, loaderFunctions?: LoaderFunctions, userData?: any): Promise<Object3D> {
         if (this._prefabPool.has(url)) {
             return this._prefabPool.get(url) as Object3D;
         }
@@ -409,7 +409,7 @@ export class Res {
      * @param loaderFunctions callback
      * @returns
      */
-    public async loadFont(url: string, loaderFunctions?: LoaderFunctions, userData?: unknown): Promise<FontInfo> {
+    public async loadFont(url: string, loaderFunctions?: LoaderFunctions, userData?: any): Promise<FontInfo> {
         let loader = new FileLoader();
         let parser = await loader.load(url, FontParser, loaderFunctions, userData);
         let data = parser.data as FontInfo;

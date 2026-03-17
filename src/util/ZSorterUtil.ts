@@ -2,7 +2,7 @@
 import { Object3D } from '../core/entities/Object3D';
 import { Vector3 } from '../math/Vector3';
 
-type ZSortItemObject3D<T = unknown> = { obj3d: Object3D; z: number; userData: T };
+type ZSortItemObject3D<T = any> = { obj3d: Object3D; z: number; userData: T };
 
 /**
  * Sort a data with world coordinates based on the camera's camera by z

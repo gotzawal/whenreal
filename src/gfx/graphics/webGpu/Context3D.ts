@@ -140,9 +140,8 @@ export class Context3D extends CEventDispatcher {
             this.presentationSize[1] = this.windowHeight;
             this.aspect = this.windowWidth / this.windowHeight;
 
-            const resizeData = this._resizeEvent.data as { width: number; height: number };
-            resizeData.width = this.windowWidth;
-            resizeData.height = this.windowHeight;
+            this._resizeEvent.data.width = this.windowWidth;
+            this._resizeEvent.data.height = this.windowHeight;
             this.dispatchEvent(this._resizeEvent);
         }
     }

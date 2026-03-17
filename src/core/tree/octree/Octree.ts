@@ -33,7 +33,7 @@ export class Octree {
   }
 
   public tryInsertEntity(entity: OctreeEntity): boolean {
-    let userBox = entity.renderer.object3D.bound as unknown as BoundingBox;
+    let userBox = entity.renderer.object3D.bound as any as BoundingBox;
     if (this.level == 0 || this.box.containsBox(userBox)) {
       if (this.subTrees.length == 0) {
         if (this.level < Octree.maxSplitLevel) {

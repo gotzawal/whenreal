@@ -23,7 +23,7 @@ export class UIButton extends UIInteractive {
     private _isCreateImage: boolean;
     private _transition: UIButtonTransition = UIButtonTransition.SPRITE;
 
-    init(param?: unknown) {
+    init(param?: any) {
         super.init(param);
         this._interactive = true;
         this._spriteMap = new Map<UIInteractiveStyle, GUISprite>();

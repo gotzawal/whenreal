@@ -41,7 +41,7 @@ export class GUIGeometryRebuild {
     function flushPanel() {
       if (indexCount > 0) {
         panel.updateDrawCallSegment(geometryIndex, indexStart, indexCount);
-        let material: GUIMaterial = panel['_uiRenderer']['materials'][geometryIndex] as unknown as GUIMaterial;
+        let material: GUIMaterial = panel['_uiRenderer']['materials'][geometryIndex] as any;
         material.setTextures(textureList);
         textureMap.clear();
         textureList.length = 0;
@@ -105,7 +105,7 @@ export class GUIGeometryRebuild {
     list ||= [];
     let components = object3D.components.values();
     for (let i of components) {
-      let item = i as unknown as UIRenderAble;
+      let item = i as any as UIRenderAble;
       if (item.isUIShadow || !item.mainQuads)
         continue;
       // push shadow
