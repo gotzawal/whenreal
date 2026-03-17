@@ -1,6 +1,6 @@
 import { DirectLight, Engine3D, View3D, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, PostProcessingComponent, CameraUtil, webGPUContext, OutlinePost, outlinePostManager, AtmosphericComponent, Color, FXAAPost } from '@orillusion/core'
 import { GUIHelp } from '@orillusion/debug/GUIHelp';
-import * as dat from '@orillusion/debug/dat.gui.module'
+import * as dat from 'dat.gui'
 import { GUIUtil } from '@samples/utils/GUIUtil';
 
 export class Sample_Outline {

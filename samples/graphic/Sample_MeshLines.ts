@@ -1,5 +1,5 @@
 import { Engine3D, Scene3D, CameraUtil, HoverCameraController, Object3D, MeshRenderer, View3D, PlaneGeometry, UnLitMaterial, Color, Vector3, PointerEvent3D, Camera3D, SphereGeometry, CylinderGeometry, MathUtil, BlendMode, GPUCullMode } from '@orillusion/core';
-import * as dat from "@orillusion/debug/dat.gui.module";
+import * as dat from "dat.gui";
 import { Stats } from '@orillusion/stats';
 
 class Sample_MeshLines {

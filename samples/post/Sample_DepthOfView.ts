@@ -1,5 +1,5 @@
 import { DepthOfFieldPost, DirectLight, Engine3D, PostProcessingComponent, View3D, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, SSR_IS_Kernel, CameraUtil, webGPUContext, AtmosphericComponent } from '@orillusion/core'
-import * as dat from '@orillusion/debug/dat.gui.module'
+import * as dat from 'dat.gui'
 
 class Sample_DepthOfView {
     lightObj: Object3D

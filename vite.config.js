@@ -13,8 +13,7 @@ export default defineConfig(option => ({
         alias: {
             '@orillusion/core': resolve(__dirname, './src/index.ts'),
             '@orillusion': resolve(__dirname, './packages'),
-            '@samples': resolve(__dirname, './samples'),
-            'dat.gui': resolve(__dirname, './packages/debug/dat.gui.module')
+            '@samples': resolve(__dirname, './samples')
         },
         mainFields: ['module:dev', 'module']
     },
