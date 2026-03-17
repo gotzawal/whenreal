@@ -1,4 +1,4 @@
-import { AnimatorComponent, ClusterLightingBuffer, ComputeGPUBuffer, GeometryBase, MeshRenderer, PassType, RendererMask, RendererPassState, SkeletonAnimationComponent, SkinnedMeshRenderer, SkinnedMeshRenderer2, Time, View3D } from '@orillusion/core';
+import { AnimatorComponent, ClusterLightingBuffer, ComputeGPUBuffer, GeometryBase, MeshRenderer, PassType, RendererMask, RendererPassState, SkinnedMeshRenderer2, Time, View3D } from '@orillusion/core';
 import { FlameSimulatorConfig } from './FlameSimulatorConfig';
 import { FlameSimulatorPipeline } from './FlameSimulatorPipeline';
 
