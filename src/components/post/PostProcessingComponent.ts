@@ -5,11 +5,11 @@ import { Ctor } from "../../util/Global";
 import { ComponentBase } from "../ComponentBase";
 
 export class PostProcessingComponent extends ComponentBase {
-    private _postList: Map<any, PostBase>;
+    private _postList: Map<Ctor<PostBase>, PostBase>;
 
 
-    public init(param?: any): void {
-        this._postList = new Map<any, PostBase>();
+    public init(param?: unknown): void {
+        this._postList = new Map<Ctor<PostBase>, PostBase>();
     }
 
     public start(): void {

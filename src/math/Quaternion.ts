@@ -58,7 +58,7 @@ export class Quaternion {
      * @param q Quaternion
      * @param m Matrix
      */
-    public static quaternionToMatrix(q: Quaternion, m: any) {
+    public static quaternionToMatrix(q: Quaternion, m: { rawData: { [index: number]: number } }) {
         // If q is guaranteed to be a unit quaternion, s will always
         // be 1.  In that case, this calculation can be optimized out.
         //float norm = GetNorm (q);
@@ -451,7 +451,7 @@ export class Quaternion {
      * Extracts a quaternion rotation matrix out of a given Matrix3D object.
      * @param matrix The Matrix3D out of which the rotation will be extracted.
      */
-    public fromMatrix(matrix: any) {
+    public fromMatrix(matrix: { decompose(orientationStyle?: string): Vector3[] }) {
         var v: Vector3 = matrix.decompose(Orientation3D.QUATERNION)[1];
         this.x = v.x;
         this.y = v.y;

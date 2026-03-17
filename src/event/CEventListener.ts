@@ -19,7 +19,7 @@ export class CEventListener {
      *
      * Returns current event dispatcher
      */
-    public current: object;
+    public current: any;
 
     /**
      *

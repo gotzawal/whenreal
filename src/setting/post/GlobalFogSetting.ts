@@ -5,7 +5,7 @@ import { Color } from "../../math/Color";
  * @group Setting
  */
 export type GlobalFogSetting = {
-    debug: any;
+    debug: boolean;
     /**
      * enable
      */

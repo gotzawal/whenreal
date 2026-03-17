@@ -150,7 +150,7 @@ export class GPUContext {
         this.lastRenderPassState = renderPassState;
         if (renderPassState.depthTexture) {
             let depth = renderPassState.renderPassDescriptor.depthStencilAttachment;
-            depth.view = renderPassState.depthTexture.getGPUView() as any;
+            depth.view = renderPassState.depthTexture.getGPUView() as GPUTextureView;
         }
         if (renderPassState.renderTargets && renderPassState.renderTargets.length > 0) {
             for (let i = 0; i < renderPassState.renderTargets.length; ++i) {

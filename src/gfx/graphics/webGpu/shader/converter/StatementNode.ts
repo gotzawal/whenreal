@@ -807,7 +807,7 @@ export class SN_Expression extends StatementNode {
 
     public static parse(r: GLSLLexer): SN_Expression {
         let opStack = new Array<GLSLLexerToken>();
-        let valueStack = new Array<any>();
+        let valueStack = new Array<StatementNode>();
         let nSamllCount = 0;
         while (r.peekToken(0).Type != TokenType.EOF) {
             let currToken = r.peekToken(0);
@@ -983,7 +983,7 @@ export class SN_Expression extends StatementNode {
         return this.nodes[0].formatToWGSL(context, depth);
     }
 
-    protected static unionOperation(opStack: Array<GLSLLexerToken>, valueStack: Array<any>): boolean {
+    protected static unionOperation(opStack: Array<GLSLLexerToken>, valueStack: Array<StatementNode>): boolean {
         if (opStack.length < 0 || valueStack.length < 2) {
             if (opStack.length > 0 && opStack[opStack.length - 1].Literal == '-') {
                 let op = opStack.pop() as GLSLLexerToken;

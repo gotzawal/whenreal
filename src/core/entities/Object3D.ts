@@ -530,7 +530,7 @@ export interface IObject3DForPropertyAnim {
     active: number;
 }
 
-function DecorateObject3D(ctor: any, _?: any) {
+function DecorateObject3D(ctor: { new(...args: any[]): Object3D }, _?: any) {
     return class extends Object3D implements IObject3DForPropertyAnim {
 
         set active(value) {

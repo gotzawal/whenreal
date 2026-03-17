@@ -1,6 +1,6 @@
 export class StorageUtil {
 
-    public static localData: any;
+    public static localData: unknown;
     public static load<T>(dataTable: string): T {
         let jsonData = localStorage.getItem(dataTable);
         if (jsonData) {

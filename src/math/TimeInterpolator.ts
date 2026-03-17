@@ -369,17 +369,17 @@ export class Interpolator {
     /**
      * @internal
      */
-    public target: any;
+    public target: Record<string, number>;
 
     /**
      * @internal
      */
-    public property: any;
+    public property: Record<string, unknown>;
 
     /**
      * @internal
      */
-    public targetProperty: any;
+    public targetProperty: Record<string, number>;
 
     /**
      * @internal
@@ -408,17 +408,17 @@ export class Interpolator {
      * @param interpolatorEnum Interpolator type
      * @returns 
      */
-    public static to(target: any, property: any, durtion: number, interpolatorEnum: InterpolatorEnum = InterpolatorEnum.AccelerateInterpolator): Interpolator {
-        let pro: any;
+    public static to(target: Record<string, number>, property: Record<string, unknown>, durtion: number, interpolatorEnum: InterpolatorEnum = InterpolatorEnum.AccelerateInterpolator): Interpolator {
+        let pro: unknown;
         var interpolator: Interpolator = new Interpolator();
         interpolator.target = target;
         interpolator.property = property;
         interpolator.durtion = durtion;
         interpolator.interpolatorEnum = interpolatorEnum;
         interpolator.start();
-        interpolator.delayTime = property['delayTime'] ? property['delayTime'] : 0;
-        if (property['onComplete']) interpolator.onComplete = property['onComplete'];
-        if (property['onProgress']) interpolator.onProgress = property['onProgress'];
+        interpolator.delayTime = property['delayTime'] ? property['delayTime'] as number : 0;
+        if (property['onComplete']) interpolator.onComplete = property['onComplete'] as Function;
+        if (property['onProgress']) interpolator.onProgress = property['onProgress'] as Function;
 
         this.interpolators.push(interpolator);
         return interpolator;
@@ -491,7 +491,7 @@ export class Interpolator {
             let ct: number;
             let tt: number;
             for (let p in property) {
-                tt = property[p];
+                tt = property[p] as number;
                 ct = targetProperty[p];
                 target[p] = ct + (tt - ct) * v;
             }

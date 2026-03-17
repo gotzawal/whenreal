@@ -4,7 +4,7 @@
  * @group Setting
  */
 export type ShadowSetting = {
-    debug: any,
+    debug: boolean,
     /**
      * enable
      */

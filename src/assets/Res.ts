@@ -231,7 +231,7 @@ export class Res {
         }
         let loader = new FileLoader();
         let parser = await loader.load(url, B3DMParser, loaderFunctions, userData);
-        let obj = parser.data;
+        let obj = parser.data as Object3D;
         this._prefabPool.set(url, obj);
         return obj;
     }
@@ -248,7 +248,7 @@ export class Res {
         }
         let loader = new FileLoader();
         let parser = await loader.load(url, I3DMParser, loaderFunctions, userData);
-        let obj = parser.data;
+        let obj = parser.data as Object3D;
         this._prefabPool.set(url, obj);
         return obj;
     }
@@ -414,7 +414,7 @@ export class Res {
         let parser = await loader.load(url, FontParser, loaderFunctions, userData);
         let data = parser.data as FontInfo;
         fonts.addFontData(data.face, data.size, data)
-        return parser.data;
+        return parser.data as FontInfo;
     }
 
     /**
@@ -426,7 +426,7 @@ export class Res {
     public async loadAtlas(url: string, loaderFunctions?: LoaderFunctions): Promise<FontInfo> {
         let loader = new FileLoader();
         let parser = await loader.load(url, AtlasParser, loaderFunctions, url);
-        return parser.data;
+        return parser.data as FontInfo;
     }
 
     /**
@@ -483,7 +483,7 @@ export class Res {
      * @param b component-blue
      * @param a component-alpha（0 for transparent，1 for opaque）
      */
-    public fillColor(array: any, w: number, h: number, r: number, g: number, b: number, a: number) {
+    public fillColor(array: { [index: number]: number }, w: number, h: number, r: number, g: number, b: number, a: number) {
         for (let i = 0; i < w; i++) {
             for (let j = 0; j < h; j++) {
                 let pixelIndex = j * w + i;

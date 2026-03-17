@@ -124,7 +124,7 @@ export class FontParser extends ParserBase {
 
     private async loadFontTextures() {
         let images: GUITexture[] = [];
-        let fontData: FontInfo = this.data;
+        let fontData: FontInfo = this.data as FontInfo;
         for (const fontPage of fontData.fontPage) {
             let texturePath = this.baseUrl + fontPage.file;
             await Engine3D.res.loadTexture(texturePath, null, true);
@@ -156,7 +156,8 @@ export class FontParser extends ParserBase {
         fonts.addFnt(fontData.face, fontData.size, sprite.id, sprite);
     }
 
-    private static readLineProperty(line: string, data: any) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    private static readLineProperty(line: string, data: Record<string, any>) {
         line.trim()
             .split(' ')
             .forEach((v, i) => {

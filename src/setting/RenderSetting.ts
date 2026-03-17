@@ -34,7 +34,7 @@ export type RenderSetting = {
         enable?: boolean;
         bloom?: BloomSetting,
         ssao?: {
-            debug: any;
+            debug: boolean;
             enable: boolean;
             radius: number;
             bias: number;

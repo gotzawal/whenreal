@@ -65,6 +65,7 @@ export class Matrix4 {
     /**
      * @internal
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public static wasm: any;
 
     /**

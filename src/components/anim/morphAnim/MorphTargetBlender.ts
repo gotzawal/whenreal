@@ -40,7 +40,7 @@ export class MorphTargetBlender extends ComponentBase {
     }
 
     public cloneMorphRenderers(): { [key: string]: SkinnedMeshRenderer2[] } {
-        let dst = {} as any;
+        let dst: { [key: string]: SkinnedMeshRenderer2[] } = {};
         for (let key in this._targetRenderers) {
             dst[key] = this._targetRenderers[key];
         }

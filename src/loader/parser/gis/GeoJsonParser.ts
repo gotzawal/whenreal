@@ -9,12 +9,12 @@ export enum GeoType {
 
 export interface GeoJsonGeometryStruct {
     type: GeoType;
-    coordinates: any;
+    coordinates: number[] | number[][] | number[][][] | number[][][][];
 }
 
 export interface GeoJsonPropertiesStruct {
     prop0: string;
-    prop1: any;
+    prop1: unknown;
 }
 
 
@@ -32,7 +32,7 @@ export interface GeoJsonStruct {
 export class GeoJsonParser extends ParserBase {
     static format: ParserFormat = ParserFormat.JSON;
     public json: string;
-    public async parseString(data: any) {
+    public async parseString(data: string) {
         this.json = data;
         this.data = JSON.parse(data) as GeoJsonStruct;
     }

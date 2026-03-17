@@ -71,7 +71,7 @@ export class StringUtil {
      * @param line source string
      * @param data result data reference
      */
-    public static readLineProperty(line: string, data: any) {
+    public static readLineProperty(line: string, data: Record<string, unknown>) {
         line.trim()
             .split(' ')
             .forEach((v, i) => {

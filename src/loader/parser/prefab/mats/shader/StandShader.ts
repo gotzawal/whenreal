@@ -99,10 +99,10 @@ export class StandShader extends Shader {
         this.getDefaultColorShader().doubleSide = value;
     }
 
-    public get alphaCutoff(): any {
+    public get alphaCutoff(): number {
         return this.getDefaultColorShader().shaderState.alphaCutoff;
     }
-    public set alphaCutoff(value: any) {
+    public set alphaCutoff(value: number) {
         this.getDefaultColorShader().setDefine("USE_ALPHACUT", true);
         this.getDefaultColorShader().shaderState.alphaCutoff = value;
         this.getDefaultColorShader().setUniform(`alphaCutoff`, value);

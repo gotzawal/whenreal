@@ -171,15 +171,16 @@ export class AnimationCurve {
         return this.curve[index];
     }
 
-    public unSerialized(data: any): this {
-        this.preWarpMode = data['m_PreInfinity'];
-        this.postWarpMode = data['m_PostInfinity'];
-        this.rotationOrder = data['m_RotationOrder'];
+    public unSerialized(data: Record<string, unknown>): this {
+        this.preWarpMode = data['m_PreInfinity'] as number;
+        this.postWarpMode = data['m_PostInfinity'] as number;
+        this.rotationOrder = data['m_RotationOrder'] as number;
 
-        let len = data['m_Curve'].length;
+        let mCurve = data['m_Curve'] as Record<string, unknown>[];
+        let len = mCurve.length;
         for (let i = 0; i < len; i++) {
             this.curve[i] = new Keyframe();
-            this.curve[i].unSerialized(data['m_Curve'][i.toString()]);
+            this.curve[i].unSerialized(mCurve[i.toString()] as Record<string, unknown>);
         }
         this.calcTotalTime();
         return this;

@@ -60,7 +60,7 @@ export class PickResult {
     /**
      * @internal
      */
-    public pickList: any;
+    public pickList: unknown[];
 
     /**
     * @internal

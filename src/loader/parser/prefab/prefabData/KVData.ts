@@ -8,7 +8,7 @@ export class KV {
 
     public key: string;
     public type: ValueEnumType;
-    private _data: any;
+    private _data: unknown;
 
     public getValue<T>(): T {
         return this._data as T;

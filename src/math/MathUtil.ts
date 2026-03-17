@@ -360,7 +360,7 @@ export let RepeatSE = function (t: number, start: number, end: number): number {
 /**
  * @internal
  */
-export let GetRepeat = function (datas: any[], element: any): number {
+export let GetRepeat = function <T>(datas: T[], element: T): number {
     let count = 0;
     for (let i in datas) {
         if (i == element) {
@@ -711,7 +711,7 @@ export function getGlobalRandomSeed() {
 /**
  * @internal
  */
-export function swap(values: any[], i1: number, i2: number) {
+export function swap<T>(values: T[], i1: number, i2: number) {
     let v1 = values[i1];
     let v2 = values[i2];
     values[i1] = v2;
