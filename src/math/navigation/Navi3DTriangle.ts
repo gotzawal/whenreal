@@ -16,11 +16,11 @@ export class Navi3DTriangle extends Vector3 implements IQuadNode {
 
     private _edges: Array<Navi3DEdge> = new Array<Navi3DEdge>();
 
-    private _neibourTriangles: DoubleArray = new DoubleArray();
+    private _neibourTriangles: DoubleArray<Navi3DEdge, Navi3DTriangle> = new DoubleArray<Navi3DEdge, Navi3DTriangle>();
 
-    private _pointAgainstEdge: DoubleArray = new DoubleArray();
+    private _pointAgainstEdge: DoubleArray<Navi3DPoint, Navi3DEdge> = new DoubleArray<Navi3DPoint, Navi3DEdge>();
 
-    private _edgeAgainstPoint: DoubleArray = new DoubleArray();
+    private _edgeAgainstPoint: DoubleArray<Navi3DEdge, Navi3DPoint> = new DoubleArray<Navi3DEdge, Navi3DPoint>();
 
     private _mask: number = 0;
 
@@ -127,10 +127,8 @@ export class Navi3DTriangle extends Vector3 implements IQuadNode {
         list.length = 0;
         var neibour: Navi3DTriangle;
         var edge: Navi3DEdge;
-        var keys: Array<any> = this._neibourTriangles.getKeys();
-        var obj: any;
-        for (obj of keys) {
-            edge = <Navi3DEdge>obj;
+        var keys: Array<Navi3DEdge> = this._neibourTriangles.getKeys();
+        for (edge of keys) {
             if (edge.testMask(edgeMask)) {
                 neibour = this._neibourTriangles.getValueByKey(edge);
                 if (neibour.testMask(triangleMask)) {
@@ -176,11 +174,10 @@ export class Navi3DTriangle extends Vector3 implements IQuadNode {
 
     public getPublicEdge(triangle: Navi3DTriangle): Navi3DEdge {
         if (triangle && triangle != this) {
-            var keys: Array<any> = this._neibourTriangles.getKeys();
-            var obj: any;
-            for (obj of keys) {
-                if (this._neibourTriangles.getValueByKey(obj) == triangle)
-                    return <Navi3DEdge>obj;
+            var keys: Array<Navi3DEdge> = this._neibourTriangles.getKeys();
+            for (var edge of keys) {
+                if (this._neibourTriangles.getValueByKey(edge) == triangle)
+                    return edge;
             }
         }
         return null;

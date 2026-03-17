@@ -7,7 +7,7 @@ export class MorePassShader {
 
 export class PassShader {
     public passType: string = '';
-    public shaderState: Map<string, any> = new Map<string, any>();
+    public shaderState: Map<string, number | boolean | string> = new Map<string, number | boolean | string>();
     public vertexShader: string = '';
     public fragmentShader: string = '';
 }
@@ -19,7 +19,7 @@ export class MorePassParser {
     protected static fragmentKeyword = 'fragment';
     protected static passTypeKeyword = 'PassType';
 
-    public static parser(code: string, defineValue: { [name: string]: any }): MorePassShader {
+    public static parser(code: string, defineValue: { [name: string]: boolean | number | string }): MorePassShader {
         code = Preprocessor.filterComment(code);
         let result = new MorePassShader();
         let index1 = code.indexOf(this.shaderKeyword);

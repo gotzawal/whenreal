@@ -14,7 +14,7 @@ export class Navi3DMesh {
     private _nav3dEdges: Array<Navi3DEdge>;
     private _nav3dTriangles: Array<Navi3DTriangle>;
     private _path: Array<Vector3>;
-    private _edgesDict: DoubleArray;
+    private _edgesDict: DoubleArray<string, Navi3DEdge>;
 
     private _nav3dAstar: Navi3DAstar;
 
@@ -44,7 +44,7 @@ export class Navi3DMesh {
         this._nav3dPoints = new Array<Navi3DPoint>();
         this._nav3dEdges = new Array<Navi3DEdge>();
         this._nav3dTriangles = new Array<Navi3DTriangle>();
-        this._edgesDict = new DoubleArray();
+        this._edgesDict = new DoubleArray<string, Navi3DEdge>();
 
         this.initPoints(pointList);
         this.initEdgesAndTriangles(triangleIndexList);
@@ -68,8 +68,8 @@ export class Navi3DMesh {
         this._path = null;
         this._triangleList = null;
 
-        var startNode: Navi3DTriangle = this.getTriangleAtPoint(startPt, 10) as any;
-        var endNode: Navi3DTriangle = this.getTriangleAtPoint(endPt, 10) as any;
+        var startNode: Navi3DTriangle = this.getTriangleAtPoint(startPt, 10) as Navi3DTriangle;
+        var endNode: Navi3DTriangle = this.getTriangleAtPoint(endPt, 10) as Navi3DTriangle;
 
         var success: boolean = this._nav3dAstar.findPath(this, startNode, endNode);
         if (success) {

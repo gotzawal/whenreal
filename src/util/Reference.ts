@@ -3,7 +3,7 @@
  * apply any instance , used full destroy
  */
 export class Reference {
-    protected reference: Map<any, Map<any, any>>;
+    protected reference: Map<object, Map<object, object>>;
 
     private static _ins: Reference;
 
@@ -14,14 +14,14 @@ export class Reference {
 
     /**
      * current instance attached from parent instance
-     * @param ref reference current 
+     * @param ref reference current
      * @param target reference parent
      */
-    public attached(ref: any, target: any) {
-        this.reference ||= new Map<any, Map<any, any>>();
+    public attached(ref: object, target: object) {
+        this.reference ||= new Map<object, Map<object, object>>();
 
         let refMap = this.reference.get(ref);
-        refMap ||= new Map<any, any>();
+        refMap ||= new Map<object, object>();
         refMap.set(target, ref);
 
         this.reference.set(ref, refMap);
@@ -29,10 +29,10 @@ export class Reference {
 
     /**
      * current instance detached from parent instance
-     * @param ref reference current 
+     * @param ref reference current
      * @param target reference parent
      */
-    public detached(ref: any, target: any) {
+    public detached(ref: object, target: object) {
         let refMap = this.reference.get(ref);
         if (refMap) {
             refMap.delete(target);
@@ -40,9 +40,9 @@ export class Reference {
     }
 
     /**
-     * current instance has reference 
+     * current instance has reference
      */
-    public hasReference(ref: any): boolean {
+    public hasReference(ref: object): boolean {
         let refMap = this.reference.get(ref);
         if (refMap) {
             return refMap.size > 0;
@@ -52,10 +52,10 @@ export class Reference {
 
     /**
      * get current instance reference count
-     * @param ref 
-     * @returns 
+     * @param ref
+     * @returns
      */
-    public getReferenceCount(ref: any): number {
+    public getReferenceCount(ref: object): number {
         let refMap = this.reference.get(ref);
         if (refMap) {
             return refMap.size;
@@ -65,10 +65,10 @@ export class Reference {
 
     /**
     * get current instance reference from where
-    * @param ref 
-    * @returns 
+    * @param ref
+    * @returns
     */
-    public getReference(ref: any): Map<any, any> {
+    public getReference(ref: object): Map<object, object> {
         let refMap = this.reference.get(ref);
         if (refMap) {
             return refMap;

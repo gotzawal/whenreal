@@ -11,7 +11,7 @@ export class CEventDispatcher {
     /**
      * @internal
      */
-    protected listeners: any = {};
+    protected listeners: { [type: string]: CEventListener[] } = {};
     /**
      * @internal
      */
@@ -22,7 +22,7 @@ export class CEventDispatcher {
      * @param event3D the event is dispatched.
      */
     public dispatchEvent(event: CEvent) {
-        var list: any = this.listeners[event.type];
+        var list: CEventListener[] = this.listeners[event.type];
         if (list != null) {
             list = list.slice();
             for (var i: number = 0; i < list.length; i++) {
@@ -54,7 +54,7 @@ export class CEventDispatcher {
      */
     public destroy() {
         for (var key in this.listeners) {
-            var list: any = this.listeners[key];
+            var list: CEventListener[] = this.listeners[key];
             while (list.length > 0) {
                 var listener: CEventListener = list[0];
                 listener.handler = null;

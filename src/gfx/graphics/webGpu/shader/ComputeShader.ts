@@ -41,7 +41,7 @@ export class ComputeShader extends ShaderPassBase {
     private _storageTextureDic: Map<string, Texture>;
     private _sampleTextureDic: Map<string, Texture>;
     private _groupsShaderReflectionVarInfos: ShaderReflectionVarInfo[][];
-    private _groupCache: { [name: string]: { groupIndex: number, infos: any } } = {};
+    private _groupCache: { [name: string]: { groupIndex: number, infos: ShaderReflectionVarInfo[][] } } = {};
 
     /**
      *
