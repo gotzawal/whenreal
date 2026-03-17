@@ -132,7 +132,7 @@ export class Sample_CarPaint {
 		}
 
 		// let giScene = await Engine3D.res.loadGltf("gltfs/pbrCar/car.gltf");
-		let giScene = await Engine3D.res.loadGltf("gltfs/pbrCar/pbrCar.gltf");
+		let giScene = await Engine3D.res.loadGltf("gltfs/glb/DamagedHelmet.glb");
 		// let giScene = await Engine3D.res.loadGltf("gltfs/scene/测试汽车1.gltf");
 		// let giScene = await Engine3D.res.loadGltf("gltfs/scene/测试汽车.glb");
 

@@ -64,8 +64,8 @@ export class Sample_LoadGLB {
                 offset: [0, 0, 0],
                 rotation: [0, 0, 0]
             },
-            "pbrCar": {
-                url: `gltfs/pbrCar/pbrCar.gltf`,
+            "DamagedHelmet": {
+                url: `gltfs/glb/DamagedHelmet.glb`,
                 scale: 1,
                 offset: [0, 0, 0],
                 rotation: [0, 0, 0]
