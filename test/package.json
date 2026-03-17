@@ -1,0 +1,17 @@
+{
+    "name": "@orillusion/test",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "test": "vitest run",
+        "test:unit": "vitest run",
+        "test:browser": "playwright test",
+        "test:ci": "vitest run && playwright test"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.53.0",
+        "@vitest/browser": "^4.1.0",
+        "@vitest/browser-playwright": "^4.1.0",
+        "vitest": "^4.1.0"
+    }
+}
