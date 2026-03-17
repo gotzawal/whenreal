@@ -267,7 +267,7 @@ export class ShaderReflection {
 
     private static parserVariables(wgsl: string) {
         let position = 0;
-        let variables: any[] = [];
+        let variables: ShaderReflectionVarInfo[] = [];
 
         while (position < wgsl.length) {
             let nLeftIndex = wgsl.indexOf('@group(', position);
@@ -356,10 +356,9 @@ export class ShaderReflection {
     }
 
     private static parserStructFields(wgsl: string, structName: string) {
-        let result: any[] = [];
+        let result: ShaderReflectionStructInfo[] = [];
 
         let position = 0;
-        let variables: any[] = [];
 
         while (position < wgsl.length) {
             let nLeftIndex = wgsl.indexOf('struct ', position);
@@ -390,7 +389,7 @@ export class ShaderReflection {
     }
 
     private static parserVertexOld(wgsl: string) {
-        let attributes: any[] = [];
+        let attributes: ShaderReflectionAttribute[] = [];
         let list = wgsl.split(`fn main(`);
         let block = list[1].split('->')[0];
         let blockList = block.split('@');
@@ -429,7 +428,7 @@ export class ShaderReflection {
     }
 
     private static parserVertex(entryPoint: string, wgsl: string) {
-        let attributes: any[] = [];
+        let attributes: ShaderReflectionAttribute[] = [];
         let list = wgsl.split(`fn ${entryPoint}(`);
         let block = list[1].split('->')[0];
         let blockList = block.split('@');
@@ -473,7 +472,7 @@ export class ShaderReflection {
      * @param line
      * @param attributes
      */
-    private static parserAttribute(line: string, attributes: any[]) {
+    private static parserAttribute(line: string, attributes: ShaderReflectionAttribute[]) {
         let obj: ShaderReflectionAttribute = {
             name: '',
             group: 0,

@@ -152,7 +152,7 @@ export class Shader {
         }
     }
 
-    public getUniform(arg0: string): any {
+    public getUniform(arg0: string): UniformValue {
         return this.getDefaultColorShader().getUniform(arg0);
     }
 

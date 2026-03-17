@@ -6,7 +6,7 @@ import { ShaderLib } from '../../../../../assets/shader/ShaderLib';
  */
 export class Preprocessor {
 
-    public static parse(code: string, defineValue: { [name: string]: any }): string {
+    public static parse(code: string, defineValue: { [name: string]: boolean | number | string }): string {
         code = this.filterComment(code);
         code = this.parsePreprocess(new PreprocessorContext(), code, defineValue);
         code = this.parseAutoBindingForAllGroup(code);
@@ -14,14 +14,14 @@ export class Preprocessor {
         return code;
     }
 
-    public static parseComputeShader(code: string, defineValue: { [name: string]: any }): string {
+    public static parseComputeShader(code: string, defineValue: { [name: string]: boolean | number | string }): string {
         code = this.filterComment(code);
         code = this.parsePreprocess(new PreprocessorContext(), code, defineValue);
         code = this.parseAutoBindingForAllGroup(code);
         return code;
     }
 
-    protected static parsePreprocess(context: PreprocessorContext, code: string, defineValue: { [name: string]: any }): string {
+    protected static parsePreprocess(context: PreprocessorContext, code: string, defineValue: { [name: string]: boolean | number | string }): string {
         let begIndex = code.indexOf('#');
         if (begIndex == -1) {
             return code;
@@ -159,7 +159,7 @@ export class Preprocessor {
     }
 
 
-    protected static parsePreprocessCommand(context: PreprocessorContext, code: string, defineValue: { [name: string]: any }): string {
+    protected static parsePreprocessCommand(context: PreprocessorContext, code: string, defineValue: { [name: string]: boolean | number | string }): string {
         let result: string = '';
         let lines = code.split('\n');
         let stack: Array<boolean> = [false];
@@ -256,7 +256,7 @@ export class Preprocessor {
         return result;
     }
 
-    protected static parseCondition(condition: string, defineValue: { [name: string]: any }): boolean {
+    protected static parseCondition(condition: string, defineValue: { [name: string]: boolean | number | string }): boolean {
         let value = defineValue[condition];
         if (value == undefined) {
             return false;

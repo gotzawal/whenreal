@@ -186,13 +186,13 @@ export class PassGenerate {
                 }
 
                 for (const uniformName in colorPass.uniforms) {
-                    var value = colorPass.getUniform(uniformName);
+                    let value = colorPass.getUniform(uniformName);
                     pass.setUniform(uniformName, value);
                 }
 
                 for (const defineName in colorPass.defineValue) {
-                    var value = colorPass.defineValue[defineName];
-                    pass.setDefine(defineName, value);
+                    let defineVal = colorPass.defineValue[defineName];
+                    pass.setDefine(defineName, defineVal);
                 }
 
                 pass.setDefine("USE_CASTREFLECTION", true);

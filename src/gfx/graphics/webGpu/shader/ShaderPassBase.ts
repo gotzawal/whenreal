@@ -48,12 +48,12 @@ export class ShaderPassBase {
     /**
      * The defined syntax value of the Shader when it is precompiled
      */
-    public defineValue: { [name: string]: any };
+    public defineValue: { [name: string]: boolean | number | string };
 
     /**
      * The constant value of the Shader when it is precompiled
      */
-    public constValues: { [name: string]: any };
+    public constValues: { [name: string]: boolean | number | string };
 
     /**
      * Uniforms data collection
@@ -138,7 +138,7 @@ export class ShaderPassBase {
      * @param defineName 
      * @param value 
      */
-    public setDefine(defineName: string, value: any) {
+    public setDefine(defineName: string, value: boolean | number | string) {
         if (this.defineValue[defineName] == null || this.defineValue[defineName] != value) {
             this.defineValue[defineName] = value;
             this.noticeValueChange();
