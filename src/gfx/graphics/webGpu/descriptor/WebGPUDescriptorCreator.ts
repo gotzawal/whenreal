@@ -75,7 +75,7 @@ export class WebGPUDescriptorCreator {
      * @returns
      */
     // static getRenderPassDescriptor(attachMentTextures: VirtualTexture[], renderPassState:RenderPassState): any {
-    public static getRenderPassDescriptor(renderPassState: RendererPassState, loadOp: GPULoadOp = null): any {
+    public static getRenderPassDescriptor(renderPassState: RendererPassState, loadOp: GPULoadOp = null): GPURenderPassDescriptor {
         if (renderPassState.renderPassDescriptor) return renderPassState.renderPassDescriptor;
         let device = webGPUContext.device;
         let presentationSize = webGPUContext.presentationSize;

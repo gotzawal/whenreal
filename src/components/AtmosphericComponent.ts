@@ -1,3 +1,4 @@
+import { View3D } from "../core/View3D";
 import { AtmosphericScatteringSky, AtmosphericScatteringSkySetting } from "../textures/AtmosphericScatteringSky";
 import { Transform } from "./Transform";
 import { SkyRenderer } from "./renderer/SkyRenderer";
@@ -137,7 +138,7 @@ export class AtmosphericComponent extends SkyRenderer {
         this.onUpdate(view3D);
     }
 
-    public start(view?: any): void {
+    public start(view?: View3D): void {
         let scene = this.transform.scene3D;
         this.map = this._atmosphericScatteringSky;
         scene.envMap = this._atmosphericScatteringSky;
@@ -153,7 +154,7 @@ export class AtmosphericComponent extends SkyRenderer {
         this._historyData.reset();
     }
 
-    public onUpdate(view?: any) {
+    public onUpdate(view?: View3D) {
         if (this._relatedTransform) {
             this._relatedTransform.rotationZ = 0;
             if (this._historyData.isRotateChange(this._relatedTransform.rotationX, this._relatedTransform.rotationY)) {

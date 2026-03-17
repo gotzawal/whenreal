@@ -18,7 +18,7 @@ export interface IUIInteractive {
     visible: boolean;
     object3D?: Object3D;
     get interactiveVisible(): boolean;
-    rayPick(ray: Ray, panel: any, screenPos: Vector2, screenSize: Vector2) : GUIHitInfo;
+    rayPick(ray: Ray, panel: object, screenPos: Vector2, screenSize: Vector2) : GUIHitInfo;
     destroy(): void;
     set mouseStyle(value: UIInteractiveStyle);
 }

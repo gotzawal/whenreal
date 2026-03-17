@@ -20,22 +20,22 @@ export class Keyframe {
         this.value = value;
     }
 
-    public unSerialized(data: any) {
-        this.serializedVersion = data['serializedVersion'];
-        this.time = data['time'];
-        this.value = data['value'];
-        this.tangentMode = data['tangentMode'];
-        this.inSlope = data['inSlope'] == 'Infinity' ? NaN : data['inSlope'];
-        this.outSlope = data['outSlope'] == 'Infinity' ? NaN : data['outSlope'];
+    public unSerialized(data: Record<string, unknown>) {
+        this.serializedVersion = data['serializedVersion'] as string;
+        this.time = data['time'] as number;
+        this.value = data['value'] as number;
+        this.tangentMode = data['tangentMode'] as number;
+        this.inSlope = data['inSlope'] == 'Infinity' ? NaN : data['inSlope'] as number;
+        this.outSlope = data['outSlope'] == 'Infinity' ? NaN : data['outSlope'] as number;
     }
 
-    public unSerialized2(data: any) {
-        this.serializedVersion = data['serializedVersion'];
-        this.time = data['time'];
-        this.value = data['value'];
-        this.tangentMode = data['tangentMode'];
-        this.inSlope = data['inTangent'] == 'Infinity' ? NaN : data['inTangent'];
-        this.outSlope = data['outTangent'] == 'Infinity' ? NaN : data['outTangent'];
+    public unSerialized2(data: Record<string, unknown>) {
+        this.serializedVersion = data['serializedVersion'] as string;
+        this.time = data['time'] as number;
+        this.value = data['value'] as number;
+        this.tangentMode = data['tangentMode'] as number;
+        this.inSlope = data['inTangent'] == 'Infinity' ? NaN : data['inTangent'] as number;
+        this.outSlope = data['outTangent'] == 'Infinity' ? NaN : data['outTangent'] as number;
     }
 
 }

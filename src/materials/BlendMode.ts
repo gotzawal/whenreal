@@ -63,7 +63,7 @@ export enum Blend {
  * @group Material
  */
 export class BlendFactor {
-    static getBlend(blendMode: BlendMode): any {
+    static getBlend(blendMode: BlendMode): GPUBlendState {
         let blend: GPUBlendState = {
             color: {
                 srcFactor: 'src-alpha',

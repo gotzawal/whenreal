@@ -18,7 +18,7 @@ export class LoaderBase {
     /**
      * @private
      */
-    public async loadBinData(url: string, loaderFunctions?: LoaderFunctions): Promise<any> {
+    public async loadBinData(url: string, loaderFunctions?: LoaderFunctions): Promise<ArrayBuffer> {
         this.baseUrl = StringUtil.getPath(url);
         this.initUrl = url;
         return new Promise(async (succ, fail) => {
@@ -26,7 +26,7 @@ export class LoaderBase {
                 .then(async (response) => {
                     if (response.ok) {
                         let chunks = await LoaderBase.read(url, response, loaderFunctions);
-                        let buffer = chunks.buffer;
+                        let buffer = chunks.buffer as ArrayBuffer;
                         chunks = null;
                         succ(buffer);
                     }

@@ -108,7 +108,7 @@ export class Color {
      * @param data 
      * @returns 
      */
-    public unSerialized(data: any): this {
+    public unSerialized(data: Record<string, number>): this {
         this.r = data['r'];
         this.g = data['g'];
         this.b = data['b'];

@@ -19,7 +19,7 @@ export class UIShadow extends UIRenderAble {
 
     public needUpdateShadow: boolean = false;
 
-    public init(param?: any): void {
+    public init(param?: unknown): void {
         super.init?.(param);
         this._shadowRadius = 2;
         this._shadowQuality = 1;

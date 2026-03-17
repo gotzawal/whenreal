@@ -20,7 +20,7 @@ export class AnimationCurveT {
     public m_curves: AnimationCurve[];
     private k: number = 0;
 
-    private _cacheValue: any;
+    private _cacheValue: CurveValueT;
     private _kValue: CurveValueT;
 
     constructor(k: number = 1) {
@@ -89,13 +89,13 @@ export class AnimationCurveT {
                 this._cacheValue = this.m_curves[0].getValue(time);
                 break;
             case 2:
-                this._cacheValue.x = this.m_curves[0].getValue(time);
-                this._cacheValue.y = this.m_curves[1].getValue(time);
+                (this._cacheValue as Vector2).x = this.m_curves[0].getValue(time);
+                (this._cacheValue as Vector2).y = this.m_curves[1].getValue(time);
                 break;
             case 3:
-                this._cacheValue.x = this.m_curves[0].getValue(time);
-                this._cacheValue.y = this.m_curves[1].getValue(time);
-                this._cacheValue.z = this.m_curves[2].getValue(time);
+                (this._cacheValue as Vector3).x = this.m_curves[0].getValue(time);
+                (this._cacheValue as Vector3).y = this.m_curves[1].getValue(time);
+                (this._cacheValue as Vector3).z = this.m_curves[2].getValue(time);
                 break;
             case 4:
                 // this._cacheValue.x = this.m_curves[0].getValue(time);
@@ -128,10 +128,10 @@ export class AnimationCurveT {
                 );
 
                 Quaternion.HELP_2.slerp(Quaternion.HELP_0, Quaternion.HELP_1, t);
-                this._cacheValue.x = Quaternion.HELP_2.x;
-                this._cacheValue.y = Quaternion.HELP_2.y;
-                this._cacheValue.z = Quaternion.HELP_2.z;
-                this._cacheValue.w = Quaternion.HELP_2.w;
+                (this._cacheValue as Quaternion).x = Quaternion.HELP_2.x;
+                (this._cacheValue as Quaternion).y = Quaternion.HELP_2.y;
+                (this._cacheValue as Quaternion).z = Quaternion.HELP_2.z;
+                (this._cacheValue as Quaternion).w = Quaternion.HELP_2.w;
                 break;
             default:
                 break;

@@ -12,7 +12,7 @@ import { UIRenderAble } from './UIRenderAble';
  */
 export class UIImage extends UIRenderAble {
 
-    init(param?: any): void {
+    init(param?: unknown): void {
         super.init?.(param);
         this.attachQuad(GUIQuad.spawnQuad());
         this.sprite = Engine3D.res.defaultGUISprite;

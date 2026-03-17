@@ -5,7 +5,7 @@ import { Transform } from '../../components/Transform';
 import { CEventDispatcher } from '../../event/CEventDispatcher';
 import { RenderLayer } from '../../gfx/renderJob/config/RenderLayer';
 import { BoundUtil } from '../../util/BoundUtil';
-import { GetCountInstanceID } from '../../util/Global';
+import { Ctor, GetCountInstanceID } from '../../util/Global';
 import { BoundingBox } from '../bound/BoundingBox';
 import { IBound } from '../bound/IBound';
 import { Object3D } from './Object3D';
@@ -51,7 +51,7 @@ export class Entity extends CEventDispatcher {
      *
      * List of components attached to an object
      */
-    public components: Map<any, IComponent>;
+    public components: Map<Ctor<IComponent>, IComponent>;
 
 
     protected waitDisposeComponents: IComponent[];
@@ -102,7 +102,7 @@ export class Entity extends CEventDispatcher {
     constructor() {
         super();
         this.entityChildren = [];
-        this.components = new Map<any, IComponent>();
+        this.components = new Map<Ctor<IComponent>, IComponent>();
         this._instanceID = GetCountInstanceID().toString();
         this.waitDisposeComponents = [];
     }
@@ -323,7 +323,7 @@ export class Entity extends CEventDispatcher {
         }
     }
 
-    public noticeComponents(key: keyof IComponent, data: any) {
+    public noticeComponents(key: keyof IComponent, data: unknown) {
         for (let item of this.components.values()) {
             let typeKey = key as string;
             item[typeKey]?.(data);

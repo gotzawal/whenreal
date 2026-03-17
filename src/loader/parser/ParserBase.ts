@@ -11,8 +11,8 @@ export class ParserBase {
     public baseUrl: string;
     public initUrl: string;
     public loaderFunctions?: LoaderFunctions;
-    public userData?: any;
-    public data: any;
+    public userData?: unknown;
+    public data: unknown;
 
     public parseString(str: string) { }
 
@@ -24,7 +24,7 @@ export class ParserBase {
         throw this.parserError('Method not implemented.', -1);
     }
 
-    public parse(data: any) { }
+    public parse(data: unknown) { }
 
     public verification(ret: void): boolean {
         throw this.parserError('Method not implemented.', -1);

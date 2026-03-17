@@ -1,4 +1,5 @@
-﻿import { ParserBase } from './ParserBase';
+﻿import { Matrix4 } from '../../math/Matrix4';
+import { ParserBase } from './ParserBase';
 import { ParserFormat } from './ParserFormat';
 import { I3DMLoader } from "./i3dm/I3DMLoader";
 
@@ -6,7 +7,7 @@ export class I3DMParser extends ParserBase {
     static format: ParserFormat = ParserFormat.BIN;
     async parseBuffer(buffer: ArrayBuffer) {
         let loader = new I3DMLoader();
-        loader.adjustmentTransform = this.userData;
+        loader.adjustmentTransform = this.userData as Matrix4;
         this.data = await loader.parse(buffer);
     }
 

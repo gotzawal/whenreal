@@ -48,9 +48,9 @@ export class PropertyAnimClip {
     public time: number = 0;
     // private _startTime: number = 0;
     private _stopTime: number = 0;
-    private _loopTime: any;
+    private _loopTime: number;
     private _wrapMode: WrapMode;
-    private _sampleRate: any;
+    private _sampleRate: number;
 
     public get wrapMode(): WrapMode {
         if (!this._wrapMode) this._wrapMode = WrapMode.Default;
@@ -61,34 +61,35 @@ export class PropertyAnimClip {
         this._wrapMode = value;
     }
 
-    public parse(jsonData: any) {
+    public parse(jsonData: Record<string, unknown>) {
         this.objAnimClip = {};
 
-        let clip = jsonData['AnimationClip'];
+        let clip = jsonData['AnimationClip'] as Record<string, unknown>;
 
-        let { m_Name, m_AnimationClipSettings, m_WrapMode, m_SampleRate } = clip;
+        let { m_Name, m_AnimationClipSettings, m_WrapMode, m_SampleRate } = clip as { m_Name: string; m_AnimationClipSettings: Record<string, unknown>; m_WrapMode: WrapMode; m_SampleRate: number };
 
         this.name = m_Name;
         this._wrapMode = m_WrapMode;
         this._sampleRate = m_SampleRate;
-        this._loopTime = m_AnimationClipSettings.m_LoopTime;
+        this._loopTime = m_AnimationClipSettings.m_LoopTime as number;
         // this._startTime = m_AnimationClipSettings.m_StartTime;
         // this._stopTime = m_AnimationClipSettings.m_StopTime;
 
         // this.totalTime = this._stopTime - this._startTime;
 
-        for (const key in clip.m_EditorCurves) {
-            if (Object.prototype.hasOwnProperty.call(clip.m_EditorCurves, key)) {
-                const curve = clip.m_EditorCurves[key];
-                let attribute = curve.attribute;
+        let editorCurves = clip.m_EditorCurves as Record<string, Record<string, unknown>>;
+        for (const key in editorCurves) {
+            if (Object.prototype.hasOwnProperty.call(editorCurves, key)) {
+                const curve = editorCurves[key];
+                let attribute = curve.attribute as string;
 
                 let attributeAnimCurve = new AttributeAnimCurve();
                 attributeAnimCurve.unSerialized(curve);
                 this.totalTime = Math.max(this.totalTime, attributeAnimCurve.totalTime);
-                let objClip = this.objAnimClip[curve.path];
+                let objClip = this.objAnimClip[curve.path as string];
                 if (!objClip) {
                     objClip = new ObjectAnimClip();
-                    this.objAnimClip[curve.path] = objClip;
+                    this.objAnimClip[curve.path as string] = objClip;
                 }
                 objClip.curve[attribute] = attributeAnimCurve;
             }

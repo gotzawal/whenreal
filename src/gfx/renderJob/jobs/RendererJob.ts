@@ -115,7 +115,7 @@ export class RendererJob {
         this.addPost(new FXAAPost());
     }
 
-    public addRenderer<T extends RendererBase>(c: Ctor<T>, param?: any): T {
+    public addRenderer<T extends RendererBase>(c: Ctor<T>, param?: unknown): T {
         let renderer: RendererBase;
         if (param) {
             renderer = new c(param);

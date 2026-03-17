@@ -127,7 +127,7 @@ export class Navi3DFunnel {
     private optimusTerminusFat(): void {
         var startFat: Navi3DPointFat;
         var endFat: Navi3DPointFat;
-        var pt: any;
+        var pt: Vector3;
 
         pt = this._result[1];
         if (pt instanceof Navi3DPointFat) {

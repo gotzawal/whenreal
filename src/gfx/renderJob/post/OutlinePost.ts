@@ -241,7 +241,7 @@ export class OutlinePost extends PostBase {
         this.entitiesBuffer.setFloat32Array('entitiesArray', this.entitiesArray);
         this.slotsBuffer.apply();
 
-        this.fetchData ||= {} as any;
+        this.fetchData ||= { dirty: false, slots: [] };
     }
 
     private fetchData: { dirty: boolean; slots: OutlinePostSlot[] };

@@ -12,7 +12,7 @@ import { TransformControllerBaseComponent } from "./TransformControllerBaseCompo
 
 export class ScaleControlComponents extends TransformControllerBaseComponent {
 
-    public init(param?: any): void {
+    public init(param?: unknown): void {
         super.init(param);
 
         let boxXYZMaterial = new UnLitMaterial();

@@ -57,7 +57,7 @@ export class TransformControllerBaseComponent extends ComponentBase {
         return (this.object3D as Object3DTransformTools).transformSpaceMode;
     }
 
-    public init(param?: any): void {
+    public init(param?: unknown): void {
         this.mContainer = new Object3D();
 
         let xAxisMaterial = new UnLitMaterial();

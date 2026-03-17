@@ -22,7 +22,17 @@ export function makeAloneSprite(id: string, texture: Texture) {
 }
 
 //
-export function makeGUISprite(source: GUITexture, id: string, data: any) {
+import { Vector2 } from "../../math/Vector2";
+import { Vector4 } from "../../math/Vector4";
+
+export interface SpriteData {
+    textureRect: Vector4;
+    textureRectOffset: Vector2;
+    size: Vector2;
+    border: Vector4;
+}
+
+export function makeGUISprite(source: GUITexture, id: string, data: SpriteData) {
     let sprite = new GUISprite();
     sprite.guiTexture = source;
     sprite.id = id;

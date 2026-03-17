@@ -12,7 +12,8 @@ export class AnimatorComponent extends ComponentBase {
     protected inverseBindMatrices: FloatArray[];
     protected _avatar: PrefabAvatarData;
     protected _rendererList: SkinnedMeshRenderer2[];
-    protected propertyCache: Map<RenderNode, { [name: string]: any }>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    protected propertyCache: Map<RenderNode, Record<string, any>>
 
     protected _clips: PropertyAnimationClip[];
     protected _clipsState: PropertyAnimationClipState[];
@@ -34,8 +35,9 @@ export class AnimatorComponent extends ComponentBase {
     private _boneRot: Quaternion = new Quaternion();
     private _crossFadeState: SkeletonAnimCrossFadeState;
 
-    public init(param?: any): void {
-        this.propertyCache = new Map<RenderNode, { [name: string]: any }>();
+    public init(param?: unknown): void {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        this.propertyCache = new Map<RenderNode, Record<string, any>>();
         this._clipsMap = new Map<string, PropertyAnimationClip>();
         this._clips = [];
         this._clipsState = [];
@@ -43,8 +45,8 @@ export class AnimatorComponent extends ComponentBase {
         this._rendererList = this.object3D.getComponentsInChild(SkinnedMeshRenderer2);
         let mrs = this.object3D.getComponentsInChild(MeshRenderer);
         for (let mr of mrs) {
-            let o = mr as any;
-            o.blendShape = mr.morphData;
+            let o = mr as unknown as SkinnedMeshRenderer2;
+            (o as unknown as Record<string, unknown>).blendShape = mr.morphData;
             this._rendererList.push(o);
         }
         for (const renderer of this._rendererList) {
@@ -304,6 +306,7 @@ export class AnimatorComponent extends ComponentBase {
     public updateBlendShape(attributes: string[], key: string, value: number) {
         for (const renderer of this._rendererList) {
             if (renderer.blendShape) {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 let property: any = this.propertyCache.get(renderer);
                 if (property && key in property) {
                     property[key](value);

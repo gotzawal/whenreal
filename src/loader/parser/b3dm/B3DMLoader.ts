@@ -1,6 +1,7 @@
 ﻿import {B3DMLoaderBase} from "./B3DMLoaderBase";
 import {B3DMParseUtil} from "../B3DMParser";
 import { Transform } from "../../../components/Transform";
+import { Object3D } from "../../../core/entities/Object3D";
 import { Matrix4 } from "../../../math/Matrix4";
 import { Orientation3D } from "../../../math/Orientation3D";
 import { Vector3 } from "../../../math/Vector3";
@@ -17,6 +18,7 @@ export class B3DMLoader extends B3DMLoaderBase {
         B3DMLoader.tempMatrix ||= new Matrix4().identity();
     }
 
+    // @ts-expect-error - returns Object3D instead of base type
     async parse(buffer: ArrayBuffer) {
         const b3dm = await super.parse(buffer);
         this.gltfBuffer = b3dm.glbBytes.slice().buffer;
@@ -57,7 +59,7 @@ export class B3DMLoader extends B3DMLoaderBase {
         model['batchTable'] = batchTable;
         model['featureTable'] = featureTable;
 
-        return model as any;
+        return model as unknown as Object3D;
     }
 
 

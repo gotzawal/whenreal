@@ -52,7 +52,7 @@ export class Object3D extends Entity {
      * @param c class of component
      * @return result component
      */
-    public addComponent<T extends IComponent>(c: Ctor<T>, param?: any): T {
+    public addComponent<T extends IComponent>(c: Ctor<T>, param?: unknown): T {
         if (!this.components.has(c)) {
             let instance: T = new c() as T;
             instance.object3D = this;
@@ -208,7 +208,7 @@ export class Object3D extends Entity {
         return ret;
     }
 
-    public getComponentsByProperty<T extends IComponent>(key: string, value: any, findedAndBreak: boolean = true, ret?: T[], includeInactive?: boolean): T[] {
+    public getComponentsByProperty<T extends IComponent>(key: string, value: unknown, findedAndBreak: boolean = true, ret?: T[], includeInactive?: boolean): T[] {
         ret ||= [];
         let findComponent;
         for (const component of this.components.values()) {
@@ -530,7 +530,7 @@ export interface IObject3DForPropertyAnim {
     active: number;
 }
 
-function DecorateObject3D(ctor: any, _?: any) {
+function DecorateObject3D(ctor: { new(...args: unknown[]): Object3D }, _?: unknown) {
     return class extends Object3D implements IObject3DForPropertyAnim {
 
         set active(value) {

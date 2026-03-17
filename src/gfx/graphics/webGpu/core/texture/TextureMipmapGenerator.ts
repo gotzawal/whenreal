@@ -35,7 +35,7 @@ export class TextureMipmapGenerator {
         }
       `;
     private static pipelineCache: { [key: string]: GPURenderPipeline } = {};
-    private static pipeline: any;
+    private static pipeline: GPURenderPipeline;
 
     public static getMipmapPipeline(texture: Texture) {
         let gpuDevice = webGPUContext.device;

@@ -67,7 +67,7 @@ export class MorphTargetData {
 
     protected _collectMorphTargetData: MorphTargetCollectData;
 
-    private _blendTarget: { [key: string]: any }
+    private _blendTarget: { [key: string]: unknown }
 
 
     constructor() {

@@ -2,7 +2,7 @@
 import { Object3D } from '../core/entities/Object3D';
 import { Vector3 } from '../math/Vector3';
 
-type ZSortItemObject3D = { obj3d: Object3D; z: number; userData: any };
+type ZSortItemObject3D<T = unknown> = { obj3d: Object3D; z: number; userData: T };
 
 /**
  * Sort a data with world coordinates based on the camera's camera by z
@@ -15,7 +15,7 @@ export class ZSorterUtil {
     private _zSortList: ZSortItemObject3D[] = [];
 
     private pop(): ZSortItemObject3D {
-        return this._pool.pop() || ({} as any);
+        return this._pool.pop() || ({} as ZSortItemObject3D);
     }
 
     private recycle() {
@@ -36,7 +36,7 @@ export class ZSorterUtil {
      * @param result Returns a list of userData, and if passed in as null, instantiates one
      * @returns
      */
-    public sort(camera3D: Camera3D, userDataList: any[], getObject3D: (userData: any) => Object3D, result?: any[]) {
+    public sort<T>(camera3D: Camera3D, userDataList: T[], getObject3D: (userData: T) => Object3D, result?: T[]) {
         this._zSortList = [];
         for (let userData of userDataList) {
             let zSortItemObject3D = this.pop();
@@ -52,7 +52,7 @@ export class ZSorterUtil {
 
         result ||= [];
         for (let item of this._zSortList) {
-            result.push(item.userData);
+            result.push(item.userData as T);
         }
         this.recycle();
         return result;

@@ -24,7 +24,7 @@ export class BoundingSphere implements IBound {
 
     public radius: number = 0;
     public diffBetweenPoints = new Vector3();
-    public owner: any;
+    public owner: Object3D;
     public forward: Vector3 = new Vector3(0, 0, 1);
 
     public worldCenter: Vector3;

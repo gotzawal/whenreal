@@ -44,7 +44,7 @@ export let GetCountInstanceID = function () {
     return _instanceID;
 }
 
-export let ArrayHas = function (array: any[], item: any) {
+export let ArrayHas = function <T>(array: T[], item: T) {
     let i = 0;
     let len = array.length;
     for (i = 0; i < len; i++) {
@@ -56,7 +56,7 @@ export let ArrayHas = function (array: any[], item: any) {
     return false;
 }
 
-export let ArrayItemIndex = function (array: any[], item: any) {
+export let ArrayItemIndex = function <T>(array: T[], item: T) {
     let i = 0;
     let len = array.length;
     for (i = 0; i < len; i++) {
@@ -78,5 +78,5 @@ export let mergeFunctions = (...funcs) => {
 /**
  * Constructor
  */
-export type Ctor<T> = { new(any?, any2?, any3?, any4?): T, prototype: any };
-export type Parser<T> = { new(any?): T, prototype: any, format: ParserFormat };
+export type Ctor<T> = { new(...args: unknown[]): T, prototype: T };
+export type Parser<T> = { new(...args: unknown[]): T, prototype: T, format: ParserFormat };

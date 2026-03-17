@@ -13,12 +13,11 @@ export class AttributeAnimCurve extends AnimationCurve {
         super();
     }
 
-    public unSerialized(data: any): this {
-        let { attribute, path } = data;
-        this.attribute = attribute;
-        this.path = path;
-        this.propertyList = attribute.split('.');
-        super.unSerialized(data.curve);
+    public unSerialized(data: Record<string, unknown>): this {
+        this.attribute = data.attribute as string;
+        this.path = data.path as string;
+        this.propertyList = this.attribute.split('.');
+        super.unSerialized(data.curve as Record<string, unknown>);
         return this;
     }
 }

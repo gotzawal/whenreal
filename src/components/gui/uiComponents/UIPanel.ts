@@ -54,7 +54,7 @@ export class UIPanel extends UIImage {
         return this;
     }
 
-    init(param?: any) {
+    init(param?: unknown) {
         super.init(param);
         this._uiTransform.resize(webGPUContext.canvas.width, webGPUContext.canvas.height);
         this.create(this.space);

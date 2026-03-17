@@ -1,10 +1,11 @@
 ﻿import { arrayToString } from './arrayToString.js';
 
 export class FeatureTable {
-    private buffer: any;
-    private binOffset: any;
-    private binLength: any;
-    private header: any;
+    private buffer: ArrayBuffer;
+    private binOffset: number;
+    private binLength: number;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    private header: Record<string, any>;
 
     constructor( buffer, start, headerLength, binLength ) {
 
@@ -148,7 +149,7 @@ export class FeatureTable {
 }
 
 export class BatchTable extends FeatureTable {
-    private batchSize: any;
+    private batchSize: number;
 
     constructor( buffer, batchSize, start, headerLength, binLength ) {
 

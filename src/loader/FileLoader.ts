@@ -17,7 +17,7 @@ export class FileLoader extends LoaderBase {
      * @see LoaderFunctions
      * @returns
      */
-    public async load<T extends ParserBase>(url: string, c: Parser<T>, loaderFunctions?: LoaderFunctions, userData?: any): Promise<T> {
+    public async load<T extends ParserBase>(url: string, c: Parser<T>, loaderFunctions?: LoaderFunctions, userData?: unknown): Promise<T> {
         switch (c.format) {
             case ParserFormat.BIN:
                 {

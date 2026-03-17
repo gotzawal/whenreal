@@ -15,6 +15,7 @@ export class AnimationMonitor {
 
     private _rootObject3D: Object3D;
     private _animation: PropertyAnimation;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private _propertyCache: {
         [path: string]: { [attribute: string]: { value: any; property: string } };
     };
@@ -178,7 +179,7 @@ export class AnimationMonitor {
             obj3d.transform.localScale = obj3d.transform.localScale;
         }
 
-        let animObj: IObject3DForPropertyAnim = obj3d as any as IObject3DForPropertyAnim;
+        let animObj: IObject3DForPropertyAnim = obj3d as unknown as IObject3DForPropertyAnim;
         if (tag.materialColor) {
             animObj.notifyMaterialColorChange(0, 'baseColor');
         }

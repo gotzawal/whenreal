@@ -56,11 +56,11 @@ export class BitmapTextureCube extends TextureCube {
             }
             this.uploadMipmapGPUTexture(0, this.width, this.width, faceTextures);
         } else {
-            this.uploadBaseImages(this.width, images as any);
+            this.uploadBaseImages(this.width, images as unknown as HTMLCanvasElement[]);
             for (let i = 0; i < 6; i++) {
                 let t = new BitmapTexture2D(false);
                 t.format = this.format;
-                t.source = images[i] as any;
+                t.source = images[i] as unknown as HTMLCanvasElement;
                 faceTextures[i] = t.getGPUTexture();
             }
         }
@@ -154,7 +154,7 @@ export class BitmapTextureCube extends TextureCube {
             }
 
             for (let i = 0; i < 6; i++) {
-                loadImage(i, this._images[i] as any);
+                loadImage(i, this._images[i] as unknown as HTMLImageElement);
             }
         } else {
             //@bug not generate OffscreenCanvas

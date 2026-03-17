@@ -29,7 +29,7 @@ export class CEventListener {
      * @param param {any} Parameters bound when registering events
      * @param priority {number} The priority of callback function execution, with a larger set value having priority to call
      */
-    constructor(public type: string | number = null, public thisObject: any = null, public handler: Function = null, public param: any = null, public priority: number = 0) { }
+    constructor(public type: string | number = null, public thisObject: object = null, public handler: Function = null, public param: unknown = null, public priority: number = 0) { }
 
     /**
      *
@@ -40,7 +40,7 @@ export class CEventListener {
      * @param param {any} Parameters bound when registering events
      * @returns {boolean} Returns a boolean
      */
-    public equalCurrentListener(type: string | number, handler: Function, thisObject: any, param: any): boolean {
+    public equalCurrentListener(type: string | number, handler: Function, thisObject: object, param: unknown): boolean {
         if (this.type == type && this.thisObject == thisObject && this.handler == handler && this.param == param) {
             return true;
         }

@@ -4,7 +4,7 @@
  * @group Setting
  */
 export type SSRSetting = {
-    debug: any;
+    debug: boolean;
     /**
      * enable
      */

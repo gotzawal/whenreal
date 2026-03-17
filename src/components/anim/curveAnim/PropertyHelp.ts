@@ -10,7 +10,7 @@ export class PropertyAnimTag {
  */
 export class PropertyHelp {
 
-    static Property: any = {
+    static Property: Record<string, string> = {
         'm_LocalPosition.x': 'localPosition.x',
         'm_LocalPosition.y': 'localPosition.y',
         'm_LocalPosition.z': 'localPosition.z',
@@ -55,7 +55,7 @@ export class PropertyHelp {
         m_FlipY: 'flipY',
     };
 
-    static Scale: any = {
+    static Scale: Record<string, number> = {
         'm_LocalPosition.x': 1,
         'm_LocalPosition.y': 1,
         'm_LocalPosition.z': -1,
@@ -85,14 +85,14 @@ export class PropertyHelp {
         tag.materialColor ||= this.tag_materialColor[attribute];
     }
 
-    private static tag_quaternion: any = {
+    private static tag_quaternion: Record<string, boolean> = {
         'm_LocalRotation.x': true,
         'm_LocalRotation.y': true,
         'm_LocalRotation.z': true,
         'm_LocalRotation.w': true,
     };
 
-    private static tag_materialColor: any = {
+    private static tag_materialColor: Record<string, boolean> = {
         'material._Color.r': true,
         'material._Color.g': true,
         'material._Color.b': true,
@@ -104,7 +104,7 @@ export class PropertyHelp {
 
     };
 
-    private static tag_transform: any = {
+    private static tag_transform: Record<string, boolean> = {
         'm_LocalPosition.x': true,
         'm_LocalPosition.y': true,
         'm_LocalPosition.z': true,

@@ -354,6 +354,7 @@ export class GPUBufferBase {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private writeValue(node: MemoryInfo, att: { name: string, type: string }, value: any) {
         switch (att.type) {
             case `Boolean`:

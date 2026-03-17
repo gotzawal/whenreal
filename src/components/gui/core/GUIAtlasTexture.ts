@@ -1,7 +1,7 @@
 import { GUISprite, } from './GUISprite';
 import { GUITexture } from './GUITexture';
 import { Vector2 } from '../../../math/Vector2';
-import { makeGUISprite } from '../GUIExtension';
+import { makeGUISprite, SpriteData } from '../GUIExtension';
 
 /**
  * Atlas data
@@ -27,7 +27,7 @@ export class GUIAtlasTexture {
      * @param detail description of sprite
      * @returns GUISprite
      */
-    public setTexture(srcTexture: GUITexture, id: string, detail: any): GUISprite {
+    public setTexture(srcTexture: GUITexture, id: string, detail: SpriteData): GUISprite {
         let sprite = makeGUISprite(srcTexture, id, detail);
         this._spriteMap.set(sprite.id, sprite);
         this._spriteList.push(sprite);

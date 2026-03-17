@@ -403,13 +403,13 @@ export class Texture implements GPUSamplerDescriptor {
         return this.view;
     }
 
-    protected _stateChangeRef: Map<any, Function> = new Map();
+    protected _stateChangeRef: Map<object, Function> = new Map();
 
-    public bindStateChange(fun: Function, ref: any) {
+    public bindStateChange(fun: Function, ref: object) {
         this._stateChangeRef.set(ref, fun);
     }
 
-    public unBindStateChange(ref: any) {
+    public unBindStateChange(ref: object) {
         this._stateChangeRef.delete(ref);
     }
 

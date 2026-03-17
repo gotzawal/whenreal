@@ -6,7 +6,7 @@ import { PropertyAnimation } from './PropertyAnimation';
  */
 export class AnimatorEventKeyframe {
     public clipName: string;
-    public data: any;
+    public data: unknown;
     public time: number;
 }
 /**

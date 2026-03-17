@@ -33,6 +33,7 @@ export class I3DMLoader extends I3DMLoaderBase {
         this.adjustmentTransform = new Matrix4().identity();
     }
 
+    // @ts-expect-error - returns Object3D instead of base type
     public async parse(buffer: ArrayBuffer) {
         const i3dm = await super.parse(buffer);
         this._gltfBuffer = i3dm.glbBytes.slice().buffer;
@@ -167,6 +168,6 @@ export class I3DMLoader extends I3DMLoaderBase {
         model['batchTable'] = batchTable;
         model['featureTable'] = featureTable;
 
-        return model as any;
+        return model as unknown as Object3D;
     }
 }

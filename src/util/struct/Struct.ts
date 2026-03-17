@@ -45,7 +45,7 @@ export class Struct {
      * @param value any type value
      * @returns
      */
-    public static getValueSize(value: any) {
+    public static getValueSize(value: unknown) {
         let type = value.constructor.name;
         switch (type) {
             case `Boolean`:
@@ -64,7 +64,7 @@ export class Struct {
                 return 1 * 4;
 
             case `Float32Array`:
-                return value.byteLength;
+                return (value as Float32Array).byteLength;
 
             case `Vector2`:
                 return 2 * 4;
@@ -80,15 +80,15 @@ export class Struct {
 
             case `Array`:
                 let singleSize = 0;
-                for (let i = 0, c = value.length; i < c; i++) {
-                    singleSize += Struct.getValueSize(value[i]);
+                for (let i = 0, c = (value as unknown[]).length; i < c; i++) {
+                    singleSize += Struct.getValueSize((value as unknown[])[i]);
                 }
                 return singleSize;
         }
         return 0;
     }
 
-    private static __cacheStruct: Map<any, Struct> = new Map<any, Struct>();
+    private static __cacheStruct: Map<object, Struct> = new Map<object, Struct>();
 
     public static Ref<T extends Struct>(c: Ctor<T>) {
         let struct = this.Get(c);

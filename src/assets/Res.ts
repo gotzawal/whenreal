@@ -42,7 +42,7 @@ export class Res {
     private _gltfPool: Map<string, GLTF_Info>;
     private _geometryPool: Map<string, GeometryBase>;
     private _atlasList: Map<string, GUIAtlasTexture>;
-    private _obj: Map<string, any>;
+    private _obj: Map<string, unknown>;
 
     /**
      * @constructor
@@ -55,7 +55,7 @@ export class Res {
         // this._prefabLoaderPool = new Map<string, PrefabLoader>;
         this._gltfPool = new Map<string, GLTF_Info>;
         this._atlasList = new Map<string, GUIAtlasTexture>();
-        this._obj = new Map<string, any>();
+        this._obj = new Map<string, unknown>();
         // this.initDefault();
     }
 
@@ -68,7 +68,7 @@ export class Res {
    * @param url file path
    * @param texture source obj
    */
-    public addObj(url: string, obj: any) {
+    public addObj(url: string, obj: unknown) {
         this._obj.set(url, obj);
     }
 
@@ -77,7 +77,7 @@ export class Res {
      * @param url file path
      * @returns
      */
-    public getObj(url: string): any {
+    public getObj(url: string): unknown {
         return this._obj.get(url);
     }
 
@@ -225,13 +225,13 @@ export class Res {
      * @param loaderFunctions callback
      * @returns
      */
-    public async loadB3DM(url: string, loaderFunctions?: LoaderFunctions, userData?: any): Promise<Object3D> {
+    public async loadB3DM(url: string, loaderFunctions?: LoaderFunctions, userData?: unknown): Promise<Object3D> {
         if (this._prefabPool.has(url)) {
             return this._prefabPool.get(url) as Object3D;
         }
         let loader = new FileLoader();
         let parser = await loader.load(url, B3DMParser, loaderFunctions, userData);
-        let obj = parser.data;
+        let obj = parser.data as Object3D;
         this._prefabPool.set(url, obj);
         return obj;
     }
@@ -242,13 +242,13 @@ export class Res {
      * @param loaderFunctions callback
      * @returns
      */
-    public async loadI3DM(url: string, loaderFunctions?: LoaderFunctions, userData?: any): Promise<Object3D> {
+    public async loadI3DM(url: string, loaderFunctions?: LoaderFunctions, userData?: unknown): Promise<Object3D> {
         if (this._prefabPool.has(url)) {
             return this._prefabPool.get(url) as Object3D;
         }
         let loader = new FileLoader();
         let parser = await loader.load(url, I3DMParser, loaderFunctions, userData);
-        let obj = parser.data;
+        let obj = parser.data as Object3D;
         this._prefabPool.set(url, obj);
         return obj;
     }
@@ -409,12 +409,12 @@ export class Res {
      * @param loaderFunctions callback
      * @returns
      */
-    public async loadFont(url: string, loaderFunctions?: LoaderFunctions, userData?: any): Promise<FontInfo> {
+    public async loadFont(url: string, loaderFunctions?: LoaderFunctions, userData?: unknown): Promise<FontInfo> {
         let loader = new FileLoader();
         let parser = await loader.load(url, FontParser, loaderFunctions, userData);
         let data = parser.data as FontInfo;
         fonts.addFontData(data.face, data.size, data)
-        return parser.data;
+        return parser.data as FontInfo;
     }
 
     /**
@@ -426,7 +426,7 @@ export class Res {
     public async loadAtlas(url: string, loaderFunctions?: LoaderFunctions): Promise<FontInfo> {
         let loader = new FileLoader();
         let parser = await loader.load(url, AtlasParser, loaderFunctions, url);
-        return parser.data;
+        return parser.data as FontInfo;
     }
 
     /**
@@ -483,7 +483,7 @@ export class Res {
      * @param b component-blue
      * @param a component-alpha（0 for transparent，1 for opaque）
      */
-    public fillColor(array: any, w: number, h: number, r: number, g: number, b: number, a: number) {
+    public fillColor(array: { [index: number]: number }, w: number, h: number, r: number, g: number, b: number, a: number) {
         for (let i = 0; i < w; i++) {
             for (let j = 0; j < h; j++) {
                 let pixelIndex = j * w + i;

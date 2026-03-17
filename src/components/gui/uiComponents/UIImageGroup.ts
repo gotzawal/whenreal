@@ -17,9 +17,9 @@ export class UIImageGroup extends UIRenderAble {
         super();
     }
 
-    init(param?: any): void {
+    init(param?: unknown): void {
         super.init?.(param);
-        this._count = param ? param.count : 1;
+        this._count = param ? (param as { count: number }).count : 1;
         for (let i = 0; i < this._count; i++) {
             this.attachQuad(GUIQuad.spawnQuad());
         }

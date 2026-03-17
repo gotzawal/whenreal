@@ -1,4 +1,5 @@
 ﻿import { Object3D } from '../../core/entities/Object3D';
+import { Matrix4 } from '../../math/Matrix4';
 import { ParserBase } from './ParserBase';
 import { ParserFormat } from './ParserFormat';
 
@@ -7,7 +8,7 @@ export class B3DMParser extends ParserBase {
 
     public async parseBuffer(buffer: ArrayBuffer) {
         let loader = new B3DMLoader();
-        loader.adjustmentTransform = this.userData;
+        loader.adjustmentTransform = this.userData as Matrix4;
         this.data = await loader.parse(buffer);
     }
 

@@ -8,12 +8,13 @@ import { ParserFormat } from "./ParserFormat";
 export class AtlasParser extends ParserBase {
     static format: ParserFormat = ParserFormat.TEXT;
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private _json: any;
     private _texture: Texture;
 
     public async parseString(data: string) {
         this._json = JSON.parse(data);
-        let textureUrl = this.userData.replace('.json', '.png');
+        let textureUrl = (this.userData as string).replace('.json', '.png');
         this._texture = await Engine3D.res.loadTexture(textureUrl, null, true);
 
         this.data = { json: this._json, texture: this._texture };

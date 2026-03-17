@@ -15,7 +15,7 @@ import { TransformControllerBaseComponent } from "./TransformControllerBaseCompo
 
 export class TranslationControlComponents extends TransformControllerBaseComponent {
 
-    public init(param?: any): void {
+    public init(param?: unknown): void {
         super.init(param);
 
         let xyPlaneMaterial = new UnLitMaterial();

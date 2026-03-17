@@ -68,7 +68,7 @@ export class ComponentBase implements IComponent {
         return this._enable;
     }
 
-    private __init(param?: any) {
+    private __init(param?: unknown) {
         this.init(param);
     }
 
@@ -108,7 +108,7 @@ export class ComponentBase implements IComponent {
         this._onGraphic(null);
     }
 
-    public init(param?: any) { }
+    public init(param?: unknown) { }
     public start() { }
     public stop() { }
     public onEnable?(view?: View3D);

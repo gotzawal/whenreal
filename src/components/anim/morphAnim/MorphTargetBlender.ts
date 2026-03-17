@@ -16,10 +16,10 @@ export class MorphTargetBlender extends ComponentBase {
     private _matrix4: Matrix4 = new Matrix4();
     private _quaternion: Quaternion = new Quaternion();
 
-    public init(param?: any): void {
+    public init(param?: unknown): void {
         let meshRenders: SkinnedMeshRenderer2[] = this.fetchMorphRenderers(this.object3D, SkinnedMeshRenderer2);
         let meshRenders2: MeshRenderer[] = this.fetchMorphRenderers(this.object3D, MeshRenderer);
-        meshRenders.push(...meshRenders2 as any);
+        meshRenders.push(...meshRenders2 as unknown as SkinnedMeshRenderer2[]);
 
         for (const renderer of meshRenders) {
             let hasMorphTarget = RendererMaskUtil.hasMask(renderer.rendererMask, RendererMask.MorphTarget);
@@ -40,7 +40,7 @@ export class MorphTargetBlender extends ComponentBase {
     }
 
     public cloneMorphRenderers(): { [key: string]: SkinnedMeshRenderer2[] } {
-        let dst = {} as any;
+        let dst: { [key: string]: SkinnedMeshRenderer2[] } = {};
         for (let key in this._targetRenderers) {
             dst[key] = this._targetRenderers[key];
         }

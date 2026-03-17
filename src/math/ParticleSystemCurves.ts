@@ -123,12 +123,12 @@ export class MinMaxCurve {
         return this.evaluateSlow(curve, t, 1);
     }
 
-    public unSerialized(data: any) {
-        this.minMaxState = data['minMaxState'];
-        this._scalar = data['scalar'];
-        this._minScalar = data['minScalar'];
-        this.maxCurve.unSerialized(data['maxCurve']);
-        this.minCurve.unSerialized(data['minCurve']);
+    public unSerialized(data: Record<string, unknown>) {
+        this.minMaxState = data['minMaxState'] as number;
+        this._scalar = data['scalar'] as number;
+        this._minScalar = data['minScalar'] as number;
+        this.maxCurve.unSerialized(data['maxCurve'] as Record<string, unknown>);
+        this.minCurve.unSerialized(data['minCurve'] as Record<string, unknown>);
     }
 }
 
@@ -142,11 +142,11 @@ export class ValueSpread {
     public spread: number = 0;
     public speed: MinMaxCurve = new MinMaxCurve();
 
-    public unSerialized(data: any) {
-        this.value = data['value'];
-        this.mode = data['mode'];
-        this.spread = data['spread'];
-        this.speed.unSerialized(data['speed']);
+    public unSerialized(data: Record<string, unknown>) {
+        this.value = data['value'] as number;
+        this.mode = data['mode'] as number;
+        this.spread = data['spread'] as number;
+        this.speed.unSerialized(data['speed'] as Record<string, unknown>);
     }
 }
 

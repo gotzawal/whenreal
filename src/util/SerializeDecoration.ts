@@ -1,7 +1,7 @@
 
 export type SerializeTag = null | 'self' | 'non';
 
-export function NonSerialize(cls, key): any {
+export function NonSerialize(cls: object, key: string) {
     let dic = cls['__NonSerialize__'];
     if (!dic) {
         dic = cls['__NonSerialize__'] = {};
@@ -22,21 +22,21 @@ export function IsNonSerialize<T extends object>(instance: T, key: string): bool
 }
 
 
-export function EditorInspector(cls, key, p1?, p2?, p3?): any {
-    let dic: Map<string, any> = cls['__EditorInspector__'];
+export function EditorInspector(cls: object, key: string, p1?: unknown, p2?: unknown, p3?: unknown) {
+    let dic: Map<string, Map<string, unknown>> = cls['__EditorInspector__'];
     if (!dic) {
-        dic = cls['__EditorInspector__'] = new Map<string, any>();
+        dic = cls['__EditorInspector__'] = new Map<string, Map<string, unknown>>();
     }
     let property = dic.get(cls.constructor.name);
     if (!property) {
-        property = new Map<string, any>();
+        property = new Map<string, unknown>();
         dic.set(cls.constructor.name, property);
     }
     property.set(key, { p1, p2, p3 });
 }
 
-export function IsEditorInspector<T extends object>(instance: T): Map<string, any> {
-    let propertyDic: Map<string, any>;
+export function IsEditorInspector<T extends object>(instance: T): Map<string, unknown> {
+    let propertyDic: Map<string, Map<string, unknown>>;
     let ins = instance;
     let list = []
     while (ins) {
@@ -58,7 +58,7 @@ export function IsEditorInspector<T extends object>(instance: T): Map<string, an
         if (propertyDic) break;
     }
 
-    let final = new Map<string, any>();
+    let final = new Map<string, unknown>();
     if (propertyDic) {
         for (let i = 0; i < list.length; i++) {
             const c_name = list[i];
@@ -79,8 +79,9 @@ export function IsEditorInspector<T extends object>(instance: T): Map<string, an
 
 
 
-export function RegisterComponent(cls, key, p1?, p2?, p3?): any {
-    let dic: { [name: string]: any } = window['__Component__'];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function RegisterComponent(cls: unknown, key: string, p1?: unknown, p2?: unknown, p3?: unknown): any {
+    let dic: { [name: string]: unknown } = window['__Component__'];
     if (!dic) {
         dic = window['__Component__'] = {};
     }
@@ -95,8 +96,9 @@ export function GetComponentClass(name: string) {
     return null;
 }
 
-export function RegisterShader(cls, key?, p1?, p2?, p3?): any {
-    let dic: { [name: string]: any } = window['__shader__'];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function RegisterShader(cls: Function, key?: string, p1?: unknown, p2?: unknown, p3?: unknown): any {
+    let dic: { [name: string]: unknown } = window['__shader__'];
     if (!dic) {
         dic = window['__shader__'] = {};
     }

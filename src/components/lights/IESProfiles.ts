@@ -16,7 +16,7 @@ export class IESProfiles {
     /**
      * create ies image from ies file
      */
-    private generateIES(file: any) {
+    private generateIES(file: string) {
         //TODO add create ies image from ies file
     }
 

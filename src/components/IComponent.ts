@@ -9,7 +9,7 @@ export interface IComponent {
     transform: Transform;
     enable: boolean;
     isDestroyed?: boolean;
-    init(param?: any);
+    init(param?: unknown);
     start();
     stop();
     onEnable?(view?: View3D);
