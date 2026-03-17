@@ -75,3 +75,51 @@ test('RenderShader', async ({ page }) => {
     expect(results.fail).toBe(0)
     expect(results.success).toBeGreaterThan(0)
 })
+
+test('DirectionLight', async ({ page }) => {
+    const results = await runTestModule(page, 'components/Light_DirectionLight.test.ts')
+    expect(results.fail).toBe(0)
+    expect(results.success).toBeGreaterThan(0)
+})
+
+test('PointLight', async ({ page }) => {
+    const results = await runTestModule(page, 'components/Light_PointLight.test.ts')
+    expect(results.fail).toBe(0)
+    expect(results.success).toBeGreaterThan(0)
+})
+
+test('SpotLight', async ({ page }) => {
+    const results = await runTestModule(page, 'components/Light_SpotLight.test.ts')
+    expect(results.fail).toBe(0)
+    expect(results.success).toBeGreaterThan(0)
+})
+
+test('PostEffects GTAO', async ({ page }) => {
+    const results = await runTestModule(page, 'components/PostEffects_GTAO.test.ts')
+    expect(results.fail).toBe(0)
+    expect(results.success).toBeGreaterThan(0)
+})
+
+test('PostEffects GlobalFog', async ({ page }) => {
+    const results = await runTestModule(page, 'components/PostEffects_GlobalFog.test.ts')
+    expect(results.fail).toBe(0)
+    expect(results.success).toBeGreaterThan(0)
+})
+
+test('PostEffects HDRBloom', async ({ page }) => {
+    const results = await runTestModule(page, 'components/PostEffects_HDRBloom.test.ts')
+    expect(results.fail).toBe(0)
+    expect(results.success).toBeGreaterThan(0)
+})
+
+test('PostEffects SSR', async ({ page }) => {
+    const results = await runTestModule(page, 'components/PostEffects_SSR.test.ts')
+    expect(results.fail).toBe(0)
+    expect(results.success).toBeGreaterThan(0)
+})
+
+test('PostEffects TAA', async ({ page }) => {
+    const results = await runTestModule(page, 'components/PostEffects_TAA.test.ts')
+    expect(results.fail).toBe(0)
+    expect(results.success).toBeGreaterThan(0)
+})
