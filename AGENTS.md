@@ -74,6 +74,25 @@ npm run test:ci       # vitest run && playwright test
 - Automatically uses headless shell in headless environments
 - Can run in headed mode if an X server is available
 
+### Chromium Download Blocked (CDN 403)
+
+If `npx playwright install chromium` fails with a 403 error (e.g. in sandboxed or restricted environments), you can reuse an older cached Playwright Chromium by symlinking it to the expected version path:
+
+```bash
+# Check which version is already cached
+ls /root/.cache/ms-playwright/
+# e.g. chromium_headless_shell-1194 exists but tests expect 1208
+
+# Create the expected directory and symlink the binary
+mkdir -p /root/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64
+ln -s /root/.cache/ms-playwright/chromium_headless_shell-1194/chrome-linux/headless_shell \
+      /root/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell
+touch /root/.cache/ms-playwright/chromium_headless_shell-1208/INSTALLATION_COMPLETE
+touch /root/.cache/ms-playwright/chromium_headless_shell-1208/DEPENDENCIES_VALIDATED
+```
+
+The exact revision numbers (e.g. 1194, 1208) and directory structure may change between Playwright versions. Check the error message for the expected path and `ls /root/.cache/ms-playwright/` for what's available.
+
 ## Source
 
 `src/` — Engine source (to be documented)
