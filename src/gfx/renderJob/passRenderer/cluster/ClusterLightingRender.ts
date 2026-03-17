@@ -12,7 +12,6 @@ import { ClusterLightingBuffer } from './ClusterLightingBuffer';
 import { ClusterBoundsSource_cs } from '../../../../assets/shader/cluster/ClusterBoundsSource_cs';
 import { ClusterLighting_cs } from '../../../../assets/shader/cluster/ClusterLighting_cs';
 import { Camera3D, ClusterConfig, Color, Vector3, Vector4 } from '../../../..';
-// import { GUIHelp } from '@orillusion/debug/GUIHelp';
 /**
  * @internal
  * @group Post
@@ -66,41 +65,6 @@ export class ClusterLightingRender extends RendererBase {
         this._clusterLightingCompute.setStorageBuffer(`assignTable`, this.clusterLightingBuffer.assignTableBuffer);
 
         this.resize = true;
-
-        // GUIHelp.addButton("clusterBuffer", () => {
-        //     let od = this.clusterLightingBuffer.clusterBuffer.readBuffer();
-        //     console.log(od);
-        //     let byteLength = 2 * 4;
-        //     for (let i = 0; i < numClusters; i++) {
-        //         const element = new Float32Array(od.buffer, i * byteLength * 4, byteLength);
-        //         let p0 = new Vector3(element[0], element[1], element[2], element[3]);
-        //         let p1 = new Vector3(element[4], element[5], element[6], element[7]);
-        //         view.graphic3D.drawBox(i + "-box", p0, p1, Color.random());
-        //     }
-        // });
-
-        // GUIHelp.addButton("assignTable", () => {
-        //     let od = this.clusterLightingBuffer.assignTableBuffer.readBuffer();
-        //     for (let i = 0; i < od.length / 4; i++) {
-        //         const count = od[i * 4 + 0];
-        //         const start = od[i * 4 + 1];
-        //         const e1 = od[i * 4 + 2];
-        //         const e2 = od[i * 4 + 3];
-        //         if (count >= 1) {
-        //             console.log(count);
-        //         }
-
-        //         if ((start + count) > start + 1) {
-        //             console.log(count, start, e1, e2);
-        //         }
-        //     }
-        //     console.log(od);
-        // });
-
-        // GUIHelp.addButton("clustersUniformBuffer", () => {
-        //     let od = this.clusterLightingBuffer.clustersUniformBuffer.readBuffer();
-        //     console.log(od);
-        // });
     }
 
     render(view: View3D, occlusionSystem: OcclusionSystem) {

@@ -179,8 +179,6 @@ export class AnimatorComponent extends ComponentBase {
             this.inverseBindMatrices.push(local.rawData);
         }
 
-        // GUIHelp.endFolder();
-
         return list;
     }
 

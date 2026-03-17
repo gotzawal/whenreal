@@ -1,9 +1,9 @@
 ﻿export class TileSet {
-    public asset: { generatetool: string, version: string, gltfUpAxis?: any };
+    public asset: { generatetool: string, version: string, gltfUpAxis?: string };
     public extras: { scenetree: string };
     public geometricError: number
-    public properties: any;
-    public refine: any;
+    public properties: Record<string, unknown>;
+    public refine: string;
     public root: TileSetRoot;
 }
 
