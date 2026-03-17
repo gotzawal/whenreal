@@ -1,6 +1,9 @@
 ## Quick Start
 
 ```bash
+git clone https://github.com/gotzawal/whenreal.git ~/whenreal
+cd ~/whenreal
+
 # 의존성 설치
 pnpm install
 
