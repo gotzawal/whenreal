@@ -62,7 +62,9 @@ app.whenReady().then(() => {
         }
     })
     vite.stderr.on('data', data=>{
-        console.error(`\x1b[31m${data.toString()}\x1b[0m`)
+        const msg = data.toString()
+        if(msg.match(/npm warn/i)) return
+        console.error(`\x1b[31m${msg}\x1b[0m`)
         close(1)
     })
     vite.unref()
