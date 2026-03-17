@@ -93,9 +93,64 @@ touch /root/.cache/ms-playwright/chromium_headless_shell-1208/DEPENDENCIES_VALID
 
 The exact revision numbers (e.g. 1194, 1208) and directory structure may change between Playwright versions. Check the error message for the expected path and `ls /root/.cache/ms-playwright/` for what's available.
 
-## Source
+## Project Structure
 
-`src/` — Engine source
+```
+src/           → Engine source (see src/AGENTS.md for detailed guide)
+packages/      → Extension packages (physics, particle, geometry, graphic, media, stats, debug, draco, ammo, wasm-matrix)
+test/          → Unit tests (Vitest) + Browser tests (Playwright)
+samples/       → Demo/example applications
+dist/          → Build output (ES + UMD)
+```
+
+### Source Domains (src/)
+
+| Domain | Path | Description |
+|--------|------|-------------|
+| Core | `core/`, `Engine3D.ts` | Scene graph, Entity/Object3D, Component system, Camera, View |
+| Rendering | `gfx/`, `components/renderer/` | WebGPU pipeline, render passes, post-processing |
+| Material & Shader | `materials/`, `assets/shader/` | PBR materials, WGSL shader library |
+| Lighting | `components/lights/`, `core/csm/` | Light types, shadows, cluster lighting, GI |
+| Animation | `components/anim/` | Skeletal, morph target, property curve animation |
+| Asset & Loader | `assets/Res.ts`, `loader/`, `textures/` | Resource manager, parsers (glTF/OBJ/B3DM), textures |
+| Math & Spatial | `math/`, `core/bound/`, `core/tree/` | Vector/Matrix/Quaternion, Octree/KDTree, navigation mesh |
+| GUI | `components/gui/` | Canvas-based UI system (panels, buttons, text, images) |
+| Input & Event | `io/`, `event/`, `components/controller/` | Input capture, event dispatch, camera controllers |
+
+### Extension Packages (packages/)
+
+| Package | Description |
+|---------|-------------|
+| `physics` | Bullet Physics via Ammo.js (rigidbody, softbody, constraints) |
+| `particle` | GPU compute-based particle system |
+| `geometry` | Procedural geometry (extrude, text, terrain, grass) |
+| `graphic` | 2D/3D debug drawing primitives (lines, shapes, ribbons) |
+| `media-extention` | Video/image materials, chroma key, 3D spatial audio |
+| `stats` | Real-time FPS/memory monitoring overlay |
+| `debug` | dat.GUI debug panel wrapper |
+| `draco` | Draco mesh compression decoder (WASM) |
+| `ammo` | Ammo.js physics engine (pre-compiled) |
+| `wasm-matrix` | WASM-accelerated matrix operations |
+
+## Code Conventions
+
+| Aspect | Convention |
+|--------|-----------|
+| Classes | PascalCase (`MeshRenderer`, `Vector3`) |
+| Methods/Variables | camelCase (`addComponent`, `getTexture`) |
+| Private fields | `_` prefix (`_materials`, `_enable`) |
+| Constants | UPPER_CASE (`MAX_VALUE`, `X_AXIS`) |
+| File naming | 1:1 with class name (`MeshRenderer.ts`) |
+| Shader files | Suffix: `*_frag.ts`, `*_vert.ts`, `*_cs.ts`, `*_shader.ts` |
+| Decorators | `@RegisterComponent()`, `@EditorInspector` |
+| Module system | ESM, barrel export via `src/index.ts` |
+| Architecture | Component-based (Unity-style), singletons (`Engine3D`, `Res`) |
+
+### Component Lifecycle
+
+```
+init(param?) → start() → onEnable() → onUpdate() → onLateUpdate() → onDisable() → beforeDestroy() → destroy()
+```
 
 ## Intentional `any` Types — Do Not Replace
 
