@@ -1,6 +1,6 @@
 import { Engine3D, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, Scene3D } from "@orillusion/core";
 import { GUIHelp } from "@orillusion/debug/GUIHelp";
-import { GUI } from "dat.gui";
+import { GUI } from "@orillusion/debug/dat.gui.module";
 import { createExampleScene } from "@samples/utils/ExampleScene";
 import { GUIUtil } from "@samples/utils/GUIUtil";
 
